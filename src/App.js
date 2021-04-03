@@ -10,6 +10,7 @@ import Loader from 'component/Loader';
 // import PrivateRoute from 'component/PrivateRoute';
 // import PublicRoute from 'component/PublicRoute';
 
+import Diagram from 'component/Diagram'; // !!!TEMPORARY ADDED
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -56,6 +57,7 @@ export default function App() {
         {/* </PublicRoute> */}
         {/* </Switch> */}
       </Suspense>
+      <Diagram />
       <ToastContainer
         position="top-right"
         autoClose={3000}
