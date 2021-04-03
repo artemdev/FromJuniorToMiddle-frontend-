@@ -1,5 +1,7 @@
-const NotFoundView = () => {
-  return <h1>Main Page</h1>;
+import MainPage from 'component/MainPage';
+
+const MainPageView = () => {
+  return <MainPage />;
 };
 
-export default NotFoundView;
+export default MainPageView;
