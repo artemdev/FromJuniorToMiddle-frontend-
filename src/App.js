@@ -13,6 +13,7 @@ import Loader from 'component/Loader';
 import Diagram from 'component/Diagram'; // !!!TEMPORARY ADDED
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import('typeface-montserrat');
 
 const ContactPageView = lazy(() =>
   import('views/ContactPageView' /* webpackChunkName: "ContactPageView" */),
