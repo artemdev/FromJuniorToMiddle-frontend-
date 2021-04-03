@@ -1,66 +1,66 @@
+import s from './MainPage.module.scss';
+
 const MainPage = () => {
   return (
-    <div>
-      <h1>Main page</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore
-        deleniti laboriosam voluptatibus, sed labore similique eos sunt fugit
-        non culpa odit quis fuga facilis exercitationem voluptas, voluptatem,
-        commodi ratione expedita quo praesentium quas architecto debitis vitae
-        provident? Ipsum amet quae distinctio iste illo dolor perferendis quas
-        accusamus eligendi? Rerum distinctio a explicabo placeat libero
-        laboriosam molestiae, modi possimus neque magni, eius facere sint totam
-        iste commodi! Minima necessitatibus delectus accusamus dolorum rerum,
-        sunt eveniet fugiat molestiae est temporibus ipsam, eum placeat vel?
-        Doloribus animi exercitationem nesciunt illo libero ratione quod
-        quibusdam eos modi quia assumenda nostrum natus voluptates tenetur
-        fugit, quisquam quos odit, id, dolorem eligendi quis accusantium.
-        Dolorum quasi tenetur ducimus hic officia quae possimus placeat
-        accusamus vero sit reiciendis quas tempore fugiat nemo nostrum
-        consectetur facilis odio doloremque, alias quod blanditiis? Dicta,
-        quisquam velit nemo minus qui maiores quaerat repellendus nulla nesciunt
-        ipsa recusandae, deleniti et impedit dolorum ratione molestias incidunt
-        cumque. Obcaecati non veritatis fugiat est nam. Nihil, id corporis quas
-        unde molestias neque error atque in aperiam ad dolorem voluptatem
-        corrupti molestiae eos? Reprehenderit accusamus cumque nostrum quidem
-        suscipit doloribus facere aut libero, labore illo? Molestiae, ad
-        quibusdam aspernatur sequi laudantium rerum labore fugiat ratione a
-        beatae incidunt odit facilis soluta deserunt consequuntur est
-        recusandae, doloribus saepe minus obcaecati quas vitae hic magni!
-        Accusamus dolorem, ad obcaecati animi neque tempora at libero distinctio
-        odit magnam? Accusantium vero dicta ullam quas eveniet placeat
-        temporibus voluptatibus repellat error! Quidem consequatur maiores quia,
-        et nulla officiis reprehenderit. Vero aut unde mollitia sunt enim,
-        nesciunt soluta numquam perferendis delectus animi odio est reiciendis
-        nisi inventore aspernatur fuga quo architecto. Exercitationem quam,
-        dignissimos laborum nulla quis labore, dolores pariatur velit molestiae
-        natus animi. Ut fugiat laudantium ipsum adipisci a, eius necessitatibus.
-        In quo vero, quidem nostrum, temporibus aliquid fugiat alias modi
-        dignissimos perspiciatis, minima impedit voluptatem libero distinctio
-        molestiae nobis rem iste sapiente saepe illum delectus illo numquam
-        suscipit. Praesentium obcaecati consequatur dolorem nihil illum sapiente
-        quaerat doloribus eos cupiditate, tenetur voluptas iure ipsa deserunt
-        laboriosam fugit quo tempora laudantium vero repudiandae beatae deleniti
-        optio sint iusto? Natus minus voluptates quia expedita pariatur
-        repellendus, in nesciunt autem asperiores saepe possimus amet, nam fuga
-        consequatur ipsum totam provident quibusdam quos vitae suscipit ipsa
-        impedit a. Delectus dignissimos debitis optio ipsam? Ducimus veniam
-        culpa, voluptatibus quo aspernatur, ut consectetur nulla vitae saepe
-        perferendis inventore debitis repellendus praesentium quod laborum,
-        excepturi tenetur labore voluptate obcaecati architecto et placeat iusto
-        nemo exercitationem. Architecto eveniet libero molestias aspernatur
-        asperiores, voluptatibus atque dolore, delectus, iure dolorum non
-        reiciendis molestiae modi fugiat temporibus aliquid sapiente.
-        Laboriosam, temporibus! Amet porro labore esse libero repellat quod nisi
-        sunt natus fugiat. Labore, quam harum, temporibus, ab nam non autem in
-        dolore repudiandae quisquam recusandae alias accusantium cumque facere
-        sunt libero ad velit quae porro cupiditate illo quis voluptate amet
-        error? Repellendus laudantium accusantium aliquam! Placeat amet
-        excepturi error, odit, laboriosam deleniti exercitationem odio eum alias
-        corporis sunt vel distinctio nostrum, doloribus provident necessitatibus
-        debitis enim mollitia voluptatem. Libero eveniet molestias consequatur!
-      </p>
-    </div>
+    <main className={s.main}>
+      <h2 className={s.quote}>
+        "Regression testing. What is it? If the system compiles, that's good, if
+        it boots,that's great!"
+      </h2>
+      <h3 className={s.author}>Linus Torvalds</h3>
+      <p className={s.authorDesc}>Linux kernel creator, hacker, 1969</p>
+
+      <div className={`${s.oneContainer} ${s.container}`}>
+        <p className={s.ContainerText}>QA technical training</p>
+
+        <button className={s.arrow}>
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0)">
+              <path
+                d="M29.817 14.5581L20.442 5.18312C20.1978 4.93896 19.8023 4.93896 19.5582 5.18312C19.314 5.42728 19.314 5.82279 19.5582 6.06689L27.8663 14.375H0.625081C0.279612 14.375 6.10352e-05 14.6546 6.10352e-05 15C6.10352e-05 15.3455 0.279612 15.6251 0.625081 15.6251H27.8663L19.5582 23.9331C19.314 24.1773 19.314 24.5728 19.5582 24.8169C19.6802 24.9389 19.8402 25 20.0001 25C20.16 25 20.3199 24.9389 20.442 24.8169L29.817 15.4419C30.0611 15.1978 30.0611 14.8023 29.817 14.5581Z"
+                fill="white"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0">
+                <rect width="30" height="30" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+      </div>
+
+      <div className={`${s.twoContainer} ${s.container}`}>
+        <p className={s.ContainerText}>Testing theory</p>
+        <button className={s.arrow}>
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0)">
+              <path
+                d="M29.817 14.5581L20.442 5.18312C20.1978 4.93896 19.8023 4.93896 19.5582 5.18312C19.314 5.42728 19.314 5.82279 19.5582 6.06689L27.8663 14.375H0.625081C0.279612 14.375 6.10352e-05 14.6546 6.10352e-05 15C6.10352e-05 15.3455 0.279612 15.6251 0.625081 15.6251H27.8663L19.5582 23.9331C19.314 24.1773 19.314 24.5728 19.5582 24.8169C19.6802 24.9389 19.8402 25 20.0001 25C20.16 25 20.3199 24.9389 20.442 24.8169L29.817 15.4419C30.0611 15.1978 30.0611 14.8023 29.817 14.5581Z"
+                fill="white"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0">
+                <rect width="30" height="30" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+      </div>
+    </main>
   );
 };
 
