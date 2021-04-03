@@ -1,5 +1,72 @@
-import './App.css';
+// import { Switch } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
-function App() {}
+// import { useDispatch, useSelector } from 'react-redux';
+// import { authOperations, authSelectors } from 'redux/auth';
 
-export default App;
+import Container from 'component/Container';
+import AppBar from 'component/AppBar';
+import Loader from 'component/Loader';
+// import PrivateRoute from 'component/PrivateRoute';
+// import PublicRoute from 'component/PublicRoute';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const ContactPageView = lazy(() =>
+  import('views/ContactPageView' /* webpackChunkName: "ContactPageView" */),
+);
+const AuthPageView = lazy(() =>
+  import('views/AuthPageView' /* webpackChunkName: "AuthPageView" */),
+);
+const MainPageView = lazy(() =>
+  import('views/MainPageView' /* webpackChunkName: "MainPageView" */),
+);
+const UsefulPageView = lazy(() =>
+  import('views/UsefulPageView' /* webpackChunkName: "UsefulPageView" */),
+);
+const NotFoundView = lazy(() =>
+  import('views/NotFoundView' /* webpackChunkName: "NotFoundView" */),
+);
+
+export default function App() {
+  return (
+    <Container>
+      <AppBar />
+      <Suspense fallback={<Loader />}>
+        {/* <Switch> */}
+        {/* <PublicRoute path="/contacts"> */}
+        <ContactPageView />
+        {/* </PublicRoute> */}
+
+        {/* <PublicRoute path="/auth"> */}
+        <AuthPageView />
+        {/* </PublicRoute> */}
+
+        {/* <PrivateRoute path="/" exact> */}
+        <MainPageView />
+        {/* </PrivateRoute> */}
+
+        {/* <PrivateRoute path="/useful-info"> */}
+        <UsefulPageView />
+        {/* </PrivateRoute> */}
+
+        {/* <PublicRoute> */}
+        <NotFoundView />
+        {/* </PublicRoute> */}
+        {/* </Switch> */}
+      </Suspense>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </Container>
+  );
+}
