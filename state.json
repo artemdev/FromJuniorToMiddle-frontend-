@@ -1,0 +1,17 @@
+[
+  {
+    "user": {
+      "email": "",
+      "testStatus": false,
+      "token": ""
+    },
+    "technical QA": {
+      "questionId": "",
+      "rightAnswer": ""
+    },
+    "testing theory": {
+      "questionId": "",
+      "rightAnswer": ""
+    }
+  }
+]
