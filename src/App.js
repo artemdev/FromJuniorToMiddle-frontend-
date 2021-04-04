@@ -19,7 +19,7 @@ const ContactPageView = lazy(() =>
   import('views/ContactPageView' /* webpackChunkName: "ContactPageView" */),
 );
 const AuthPageView = lazy(() =>
-  import('views/AuthPageView' /* webpackChunkName: "AuthPageView" */),
+  import('views/AuthPageView/AuthPageView' /*AuthPageViewChunkName: "AuthPageView" */),
 );
 const MainPageView = lazy(() =>
   import('views/MainPageView' /* webpackChunkName: "MainPageView" */),
