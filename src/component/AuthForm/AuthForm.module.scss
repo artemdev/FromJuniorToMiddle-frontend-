@@ -7,7 +7,7 @@
 }
 
 .text {
-  /* font-family: Montserrat; */
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
@@ -17,8 +17,12 @@
   margin-bottom: 20px;
 }
 
+.buttonGoogleWrapper {
+  text-align: center;
+}
+
 .buttonGoogle {
-  /* font-family: Montserrat; */
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -26,9 +30,10 @@
   letter-spacing: 0.02em;
   color: #000000;
   background-color: #fafafa;
-  display: flex;
-  align-items: center;
+  // border:none  сливается кнопка, не видно края
+  border: 1px solid #ced2d1;
   text-align: center;
+  padding: 18px 38px;
   margin-bottom: 30px;
   cursor: pointer;
 }
@@ -37,9 +42,12 @@
   content: ' ';
   width: 18px;
   height: 18px;
-  background-image: url(google-logo.png);
+  background-image: url(../../icon/google-logo.png);
   background-repeat: no-repeat;
   background-position: center;
+  display: inline-block;
+  vertical-align: text-top;
+  margin-right: 10px;
 }
 
 .input {
@@ -51,7 +59,7 @@
 }
 
 .input::placeholder {
-  /* font-family: Montserrat; */
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -63,38 +71,40 @@
   padding-bottom: 20px;
 }
 
+.buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .buttonSignIn {
-  width: 110px;
   background-color: #ff6b09;
+  border: none;
   cursor: pointer;
-  /* font-family: Montserrat; */
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: bold;
   font-size: 10px;
   line-height: 12px;
-  display: flex;
-  align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #ffffff;
+  padding: 25px 28px;
 }
 
 .buttonSignUp {
-  width: 110px;
-  height: 60px;
   border: 1px solid #ced2d1;
-  /* font-family: Montserrat; */
+  background-color: #ffffff;
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: bold;
   font-size: 10px;
   line-height: 12px;
-  display: flex;
-  align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #000000;
+  padding: 25px 28px;
 }
 
 /* стили на десктоп */

@@ -1,5 +1,5 @@
 import AuthForm from '../../component/AuthForm/index';
-import styles from './AuthPageView.module.css';
+import styles from './AuthPageView.module.scss';
 
 const AuthPageView = () => {
   return (
@@ -7,9 +7,11 @@ const AuthPageView = () => {
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Pro Test</h2>
         <p className={styles.text}>
-          [ We will help you find weak points in knowledge so that you can
-          strengthen it. We will show you what is relevant to know for a QA
-          Engineer and will try to make the learning process more diverse_ ]
+          <span className={styles.textBold}>[</span> We will help you find weak
+          points in knowledge so that you can strengthen it. We will show you
+          what is relevant to know for a{' '}
+          <span className={styles.textBold}>QA Engineer</span> and will try to
+          make the learning process more diverse_ <span className={styles.textBold}>]</span>
         </p>
       </div>
       <div className={styles.wrapper}>
