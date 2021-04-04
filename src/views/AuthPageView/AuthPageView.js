@@ -1,5 +1,5 @@
 import AuthForm from '../../component/AuthForm/index';
-import styles from 'AuthPageView.module.css';
+import styles from './AuthPageView.module.css';
 
 const AuthPageView = () => {
   return (
