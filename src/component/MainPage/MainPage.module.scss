@@ -1,0 +1,109 @@
+.main {
+  display: grid;
+}
+
+.quote {
+  margin: 0 auto;
+  max-width: 280px;
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 2em;
+  text-align: center;
+  @media (min-width: 768px) {
+    max-width: 650px;
+    font-size: 2.2em;
+    line-height: 3em;
+  }
+}
+.textBr {
+  display: block;
+}
+.author {
+  font-weight: 500;
+  font-size: 1.2em;
+  line-height: 1.4em;
+
+  text-align: center;
+  @media (min-width: 768px) {
+    font-size: 1.8em;
+    line-height: 3.6em;
+  }
+}
+.authorDesc {
+  font-weight: 500;
+  font-style: 1em;
+  line-height: 1.2em;
+  text-align: center;
+  @media (min-width: 768px) {
+    font-size: 1.4em;
+    line-height: 3.6em;
+  }
+}
+.card {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  align-self: center;
+  justify-self: center;
+  @media (min-width: 768px) {
+    grid-gap: 30px;
+  }
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2 0px;
+  }
+}
+.container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 212px;
+  padding: 40px 0;
+  margin: 0 auto;
+  cursor: pointer;
+  @media (min-width: 768px) {
+    width: 400px;
+  }
+}
+.container:hover,
+.container:focus {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.oneContainer {
+  background-color: #02172a;
+}
+.twoContainer {
+  background-color: #ff6b01;
+}
+
+.ContainerText {
+  max-width: 180px;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 2.4em;
+  text-align: center;
+  line-height: 1.2em;
+  @media (min-width: 768px) {
+    max-width: 248px;
+    font-size: 3.2em;
+  }
+}
+
+.arrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
