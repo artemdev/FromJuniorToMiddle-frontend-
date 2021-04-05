@@ -2,16 +2,16 @@
   {
     "user": {
       "email": "",
-      "testStatus": false,
+      "testActive": "",
       "token": ""
     },
-    "technical QA": {
-      "questionId": "",
-      "rightAnswer": ""
-    },
-    "testing theory": {
-      "questionId": "",
-      "rightAnswer": ""
+    "tests": {
+      "question": [
+        {
+          "questionId": "",
+          "rightAnswer": ""
+        }
+      ]
     }
   }
 ]
