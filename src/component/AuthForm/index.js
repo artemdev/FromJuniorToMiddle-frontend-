@@ -6,7 +6,9 @@ export default function AuthForm() {
       <h2 className={styles.text}>
         You can use your Google Account to authorize:
       </h2>
-
+      <div className={styles.buttonGoogleWrapper}>
+        <button className={styles.buttonGoogle}>Google</button>
+      </div>
       <h2 className={styles.text}>
         Or login to our app using e-mail and password
       </h2>
