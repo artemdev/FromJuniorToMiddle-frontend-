@@ -1,0 +1,115 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+  padding: 30px 0px 40px 0px;
+  @media (min-width: 768px) {
+    padding: 41px 0px 107px 0px;
+  }
+  @media (min-width: 768px) {
+    padding: 40px 0px 60px 0px;
+  }
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #000000;
+  line-height: 2.5;
+  font-weight: 700;
+  margin-bottom: 0px;
+  @media (min-width: 768px) {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+  font-weight: 500;
+  margin-bottom: 10px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 30px;
+  }
+}
+
+.line {
+  width: 130px;
+  height: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+
+  background-color: #00122f;
+  opacity: 15%;
+  @media (min-width: 768px) {
+    width: 321.5px;
+    margin-bottom: 40px;
+  }
+}
+
+.image {
+  margin: 0px auto 21px;
+  width: 120px;
+  height: 120px;
+  @media (min-width: 768px) {
+    width: 176px;
+    height: 176px;
+    margin: 0px auto 10px;
+  }
+}
+
+.feedbackTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.9;
+  font-weight: 700;
+  margin-bottom: 10px;
+  @media (min-width: 768px) {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+}
+
+.feedbackSubtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+
+  color: #000000;
+  line-height: 1.2;
+  font-weight: 500;
+  margin-bottom: 22px;
+  @media (min-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 47px;
+  }
+}
+
+.button {
+  width: 190px;
+  padding: 17px 28px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  background-color: #ff6b09;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
