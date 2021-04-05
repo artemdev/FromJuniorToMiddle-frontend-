@@ -24,8 +24,7 @@ export default function AuthForm() {
         placeholder="Password"
         className={styles.input}
       />
-
-      <div>
+      <div className={styles.buttonWrapper}>
         <button className={styles.buttonSignIn}>Sign in</button>
         <button className={styles.buttonSignUp}>Sign up</button>
       </div>

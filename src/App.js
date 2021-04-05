@@ -54,7 +54,7 @@ export default function App() {
             {/* </PublicRoute> */}
 
             {/* <PrivateRoute path="/" exact> */}
-            <MainPageView path="/" />
+            <MainPageView path="/" exact />
             {/* </PrivateRoute> */}
 
             {/* <PrivateRoute path="/useful-info"> */}
