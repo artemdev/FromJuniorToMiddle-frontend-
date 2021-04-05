@@ -33,6 +33,7 @@
     "redux-persist": "^6.0.0",
     "slugify": "^1.4.6",
     "typeface-montserrat": "^1.1.13",
+    "uuid": "^8.3.2",
     "uuidv4": "^6.2.6",
     "web-vitals": "^0.2.4"
   },
