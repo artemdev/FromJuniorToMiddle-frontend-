@@ -1,5 +1,16 @@
 .main {
   display: grid;
+
+  padding-top: 30px;
+  padding-bottom: 33px;
+  @media (min-width: 768px) {
+    padding-top: 80px;
+    padding-bottom: 112px;
+  }
+  @media (min-width: 1280px) {
+    padding-top: 122px;
+    padding-bottom: 114px;
+  }
 }
 
 .quote {
@@ -9,16 +20,29 @@
   font-size: 1.2em;
   line-height: 2em;
   text-align: center;
+
   @media (min-width: 768px) {
     max-width: 650px;
     font-size: 2.2em;
-    line-height: 3em;
   }
 }
 .textBr {
   display: block;
 }
+.author:before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: rgba(0, 18, 47, 0.15);
+  margin: 20px 0;
+  width: 130px;
+  @media (min-width: 768px) {
+    width: 322px;
+    margin-bottom: 13px;
+  }
+}
 .author {
+  margin: 0 auto;
   font-weight: 500;
   font-size: 1.2em;
   line-height: 1.4em;
@@ -26,14 +50,15 @@
   text-align: center;
   @media (min-width: 768px) {
     font-size: 1.8em;
-    line-height: 3.6em;
   }
 }
 .authorDesc {
+  margin-top: 4px;
   font-weight: 500;
   font-style: 1em;
   line-height: 1.2em;
   text-align: center;
+  margin-bottom: 40px;
   @media (min-width: 768px) {
     font-size: 1.4em;
     line-height: 3.6em;
@@ -50,7 +75,7 @@
   }
   @media (min-width: 1280px) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2 0px;
+    grid-gap: 20px;
   }
 }
 .container {
@@ -62,7 +87,7 @@
   justify-content: center;
   width: 280px;
   height: 212px;
-  padding: 40px 0;
+  // padding: 40px 0;
   margin: 0 auto;
   cursor: pointer;
   @media (min-width: 768px) {
@@ -82,6 +107,7 @@
 }
 
 .ContainerText {
+  margin-top: 50px;
   max-width: 180px;
   color: #ffffff;
   font-weight: 800;
@@ -95,6 +121,7 @@
 }
 
 .arrow {
+  margin-bottom: 36px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
