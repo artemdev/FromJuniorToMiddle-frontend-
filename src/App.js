@@ -11,7 +11,6 @@ import Loader from 'component/Loader';
 // import PrivateRoute from 'component/PrivateRoute';
 // import PublicRoute from 'component/PublicRoute';
 
-
 import Result from 'component/Results'; // !!!TEMPORARY ADDED
 
 import { ToastContainer } from 'react-toastify';
@@ -27,9 +26,9 @@ const AuthPageView = lazy(() =>
   ),
 );
 
-// const MainPageView = lazy(() =>
-//   import('views/MainPageView' /* webpackChunkName: "MainPageView" */),
-// );
+const MainPageView = lazy(() =>
+  import('views/MainPageView' /* webpackChunkName: "MainPageView" */),
+);
 // const UsefulPageView = lazy(() =>
 //   import('views/UsefulPageView' /* webpackChunkName: "UsefulPageView" */),
 // );
@@ -53,34 +52,31 @@ export default function App() {
             {/* </PublicRoute> */}
 
             {/* <PrivateRoute path="/" exact> */}
-            {/* <MainPageView /> */}
+            <MainPageView path="/" />
             {/* </PrivateRoute> */}
 
             {/* <PrivateRoute path="/useful-info"> */}
             {/* <UsefulPageView /> */}
             {/* </PrivateRoute> */}
 
-
-        {/* <PublicRoute> */}
-        <NotFoundView />
-        {/* </PublicRoute> */}
-        {/* </Switch> */}
-      </Suspense>
-      <Result />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-    </Container>
-
+            {/* <PublicRoute> */}
+            {/* <NotFoundView /> */}
+            {/* </PublicRoute> */}
+          </Switch>
+        </Suspense>
+        <Result />
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </Container>
     </>
-
   );
 }
