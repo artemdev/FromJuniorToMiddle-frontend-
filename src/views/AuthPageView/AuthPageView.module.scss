@@ -1,8 +1,10 @@
 /* стили для мобилки */
 .section {
+  width: 280px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 0 auto;
   margin-bottom: 50px;
 }
 
@@ -36,4 +38,54 @@
 
 .textBold {
   font-weight: bold;
+}
+
+// стили для таблетки
+@media (min-width: 768px) and (max-width: 1279px) {
+  .section {
+    width: 540px;
+    margin-bottom: 70px;
+  }
+
+  .wrapper:not(:last-child) {
+    margin-bottom: 50px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 37px;
+    padding-top: 80px;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    font-size: 16px;
+    line-height: 36px;
+  }
+}
+
+// стили для десктоп
+@media (min-width: 1280px) {
+  .section {
+    width: 1030px;
+    flex-wrap: nowrap;
+    margin-bottom: 100px;
+  }
+
+  .wrapper:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .title {
+    font-size: 34px;
+    line-height: 41px;
+    padding-top: 80px;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    width: 420px;
+    font-size: 18px;
+    line-height: 36px;
+  }
 }

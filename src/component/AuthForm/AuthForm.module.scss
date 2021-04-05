@@ -107,13 +107,92 @@
   padding: 25px 28px;
 }
 
-/* стили на десктоп */
-/* .form {
-    width: 505px;
+// стили для таблетки
+@media (min-width: 768px) and (max-width: 1279px) {
+  .form {
+    width: 540px;
+    padding: 62px 58px 42px 58px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 30px;
+  }
+
+  .buttonGoogleWrapper {
+    text-align: left;
+  }
+
+  .buttonGoogle {
+    margin-bottom: 40px;
+  }
+
+  .input {
+    width: 425px;
+    margin-bottom: 24px;
+  }
+
+  .buttonWrapper {
+    padding-top: 16px;
+  }
+
+  .buttonSignIn {
+    width: 200px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 24px 46px;
+  }
+
+  .buttonSignUp {
+    width: 200px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 25px 46px;
+  }
 }
 
-.text {
-font-size: 14px;
-line-height: 17px;
+// стили для десктоп
+@media (min-width: 1280px) {
+  .form {
+    width: 505px;
+    padding: 62px 40px 42px 40px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 30px;
+  }
+
+  .buttonGoogleWrapper {
+    text-align: left;
+  }
+
+  .buttonGoogle {
+    margin-bottom: 40px;
+  }
+
+  .input {
+    width: 425px;
+    margin-bottom: 24px;
+  }
+
+  .buttonWrapper {
+    padding-top: 16px;
+  }
+
+  .buttonSignIn {
+    width: 200px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 24px 46px;
+  }
+
+  .buttonSignUp {
+    width: 200px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 25px 46px;
+  }
 }
- */
