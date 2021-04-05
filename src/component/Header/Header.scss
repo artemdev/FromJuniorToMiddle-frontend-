@@ -1,0 +1,23 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgb(245, 246, 251);
+  border-bottom: 1px solid rgb(226, 227, 229);
+
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+  }
+
+  &__button {
+    width: 56px;
+    background-color: rgb(245, 246, 251);
+    border: none;
+    border-left: 1px solid rgb(226, 227, 229);
+    outline: none;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+}
