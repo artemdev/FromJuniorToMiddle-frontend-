@@ -16,12 +16,14 @@ const MainPage = ({ testActive, technicalQA, testingTheory }) => {
       <p className={s.authorDesc}>Linux kernel creator, hacker, 1969</p>
       <section className={s.card}>
         <MainPageContainer
+          to="/test"
           testActive={testActive}
           title={'QA technical training'}
           className={s.oneContainer}
           onClick={technicalQA}
         />
         <MainPageContainer
+          to="/test"
           testActive={testActive}
           title={'Testing theory'}
           className={s.twoContainer}

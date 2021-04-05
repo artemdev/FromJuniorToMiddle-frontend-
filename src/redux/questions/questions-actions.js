@@ -1,8 +1,10 @@
+import { TECHNICAL_QA, TESTING_THEORY } from './question-type';
+
 export const technicalQA = value => ({
-  type: 'questions/technicalQA',
+  type: TECHNICAL_QA,
   payload: value,
 });
 export const testingTheory = value => ({
-  type: 'questions/testingTheory',
+  type: TESTING_THEORY,
   payload: value,
 });
