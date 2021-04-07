@@ -7,11 +7,10 @@ import axios from 'axios';
 // import FormControl from '@material-ui/core/FormControl';
 // import FormLabel from '@material-ui/core/FormLabel';
 // import { makeStyles } from '@material-ui/core/styles';
-import 'antd/dist/antd.css';
 import { Radio } from 'antd';
 // import { Radio, Input } from 'antd';
 
-axios.defaults.baseURL = 'http://localhost:3123';
+axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
 
 export default function TestPage() {
   const [tests, setTests] = useState(null);
@@ -28,9 +27,9 @@ export default function TestPage() {
       return [];
     }
   }
-  // useEffect(() => {
-  //   getTests().then(tests => setTests(tests.data.tests));
-  // }, []);
+  useEffect(() => {
+    getTests().then(tests => setTests(tests.data.tests));
+  }, []);
 
   const handleChange = e => {
     setValue(e.target.value);
