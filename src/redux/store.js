@@ -1,13 +1,17 @@
-import { createStore, combineReducers } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import questionsReducer from './questions/questions-reducer';
 import userReducer from './auth/auth-reducer';
+import logger from 'redux-logger';
 
-const rootReducer = combineReducers({
-  user: userReducer,
-  tests: questionsReducer,
+const middleware = [...getDefaultMiddleware(), logger];
+
+const store = configureStore({
+  reducer: {
+    user: userReducer,
+    tests: questionsReducer,
+  },
+  middleware,
+  devTools: process.env.NODE_ENV === 'development',
 });
-
-const store = createStore(rootReducer, composeWithDevTools());
 
 export default store;
