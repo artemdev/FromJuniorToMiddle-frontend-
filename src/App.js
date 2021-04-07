@@ -12,6 +12,7 @@ import Loader from 'component/Loader';
 // import PublicRoute from 'component/PublicRoute';
 
 import Result from 'component/Results'; // !!!TEMPORARY ADDED
+import Footer from 'component/Footer';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -79,6 +80,7 @@ export default function App() {
           pauseOnHover
         />
       </Container>
+      <Footer />
     </>
   );
 }
