@@ -1,10 +1,22 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { toggleModalAction } from '../../redux/modal/action';
+import { getModalStatus } from '../../redux/modal/selectors';
 import './UserMenu.scss';
 
-const UserMenu = ({ onModalClose }) => {
+const UserMenu = () => {
+  const value = useSelector(getModalStatus);
+  const dispatch = useDispatch();
+
+  function onToggleModal() {
+    if (value) {
+      dispatch(toggleModalAction(value));
+    }
+  }
+
   return (
     <ul className="list nav-list">
-      <li className="nav-list__item" onClick={onModalClose}>
+      <li className="nav-list__item" onClick={onToggleModal}>
         <NavLink
           exact
           to="/"
@@ -14,7 +26,7 @@ const UserMenu = ({ onModalClose }) => {
           Home
         </NavLink>
       </li>
-      <li className="nav-list__item" onClick={onModalClose}>
+      <li className="nav-list__item" onClick={onToggleModal}>
         <NavLink
           to="/useful-info"
           className="nav-list__item-link"
@@ -23,7 +35,7 @@ const UserMenu = ({ onModalClose }) => {
           Materials
         </NavLink>
       </li>
-      <li className="nav-list__item" onClick={onModalClose}>
+      <li className="nav-list__item" onClick={onToggleModal}>
         <NavLink
           to="/contacts"
           className="nav-list__item-link"
