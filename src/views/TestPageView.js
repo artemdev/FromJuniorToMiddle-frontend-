@@ -1,4 +1,4 @@
-import TestPage from '../component/TestPage';
+import TestPage from 'component/TestPage';
 
 export default function TestPageView() {
   return (

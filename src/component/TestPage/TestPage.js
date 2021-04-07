@@ -8,7 +8,8 @@ import axios from 'axios';
 // import FormLabel from '@material-ui/core/FormLabel';
 // import { makeStyles } from '@material-ui/core/styles';
 import 'antd/dist/antd.css';
-import { Radio, Input } from 'antd';
+import { Radio } from 'antd';
+// import { Radio, Input } from 'antd';
 
 axios.defaults.baseURL = 'http://localhost:3123';
 
@@ -16,7 +17,7 @@ export default function TestPage() {
   const [tests, setTests] = useState(null);
   const [index, setIndex] = useState(0);
   const [value, setValue] = useState(null);
-  const [answers, setAnswers] = useState([]);
+  // const [answers, setAnswers] = useState([]);
 
   async function getTests() {
     try {
@@ -27,9 +28,9 @@ export default function TestPage() {
       return [];
     }
   }
-  useEffect(() => {
-    getTests().then(tests => setTests(tests.data.tests));
-  }, []);
+  // useEffect(() => {
+  //   getTests().then(tests => setTests(tests.data.tests));
+  // }, []);
 
   const handleChange = e => {
     setValue(e.target.value);

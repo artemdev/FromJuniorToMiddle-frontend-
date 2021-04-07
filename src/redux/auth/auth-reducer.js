@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
 
 import { createReducer } from '@reduxjs/toolkit';
-import { TECHNICAL_QA, TESTING_THEORY } from '../questions/question-type';
-import * as authActions from './auth-actions'
-
+// import { TECHNICAL_QA, TESTING_THEORY } from '../questions/question-type';
+import * as authActions from './auth-actions';
 
 // нужен ли здесь password??????
 const initialUserState = {
@@ -21,8 +20,6 @@ const error = createReducer(null, {
   [authActions.registerError]: (_, action) => action.payload,
   [authActions.loginError]: (_, action) => action.payload,
 });
-
-
 
 const tokenReducer = (state = '', action) => state;
 
