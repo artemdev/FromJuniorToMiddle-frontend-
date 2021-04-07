@@ -5,7 +5,34 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
+  padding-top: 40px;
   margin-bottom: 50px;
+}
+
+.wrapper:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 'Montserrat';
+  font-size: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: #000000;
 }
 
 .textBold {
@@ -16,6 +43,7 @@
 @media (min-width: 768px) and (max-width: 1279px) {
   .section {
     width: 540px;
+    padding-top: 80px;
     margin-bottom: 70px;
   }
 
@@ -26,7 +54,6 @@
   .title {
     font-size: 30px;
     line-height: 37px;
-    padding-top: 80px;
     margin-bottom: 20px;
   }
 
@@ -41,7 +68,12 @@
   .section {
     width: 1030px;
     flex-wrap: nowrap;
+    padding-top: 80px;
     margin-bottom: 100px;
+  }
+
+  .wrapper {
+    margin-bottom: 0;
   }
 
   .wrapper:not(:last-child) {
@@ -51,7 +83,6 @@
   .title {
     font-size: 34px;
     line-height: 41px;
-    padding-top: 80px;
     margin-bottom: 20px;
   }
 
