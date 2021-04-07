@@ -1,0 +1,40 @@
+.signOutIcon {
+  width: 16px;
+  height: 16px;
+  @media (max-width: 768px) {
+    // margin-right: 10px;
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+.authNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 156px;
+  @media (max-width: 768px) {
+    justify-content: flex-end;
+    margin-right: 19px;
+  }
+}
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.name {
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  text-align: right;
+  @media (max-width: 768px) {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}

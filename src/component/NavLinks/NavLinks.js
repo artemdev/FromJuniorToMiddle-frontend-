@@ -2,9 +2,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toggleModalAction } from '../../redux/modal/action';
 import { getModalStatus } from '../../redux/modal/selectors';
-import './UserMenu.scss';
+import './NavLinks.scss';
 
-const UserMenu = () => {
+const NavLinks = () => {
   const value = useSelector(getModalStatus);
   const dispatch = useDispatch();
 
@@ -48,4 +48,4 @@ const UserMenu = () => {
   );
 };
 
-export default UserMenu;
+export default NavLinks;
