@@ -31,9 +31,7 @@ const register = credentials => async dispatch => {
     // прокидывает responce.data до редюсера. В responce.data лежит обьект со свойствами user и token.
     //  В payload будет свойство user и свойство token
     dispatch(authActions.registerSuccess(responce.data));
-  //??????????????????????????????????????????????
-
-
+    //??????????????????????????????????????????????
   } catch (error) {
     dispatch(authActions.registerError(error.message));
   }
@@ -60,8 +58,21 @@ const logIn = credentials => async dispatch => {
   }
 };
 
+const logOut = () => async dispatch => {
+  try {
+    dispatch(authActions.logOutRequest());
+    //заработает когда будет авторизация
+    await axios.post('auth/logout');
+    token.unset();
+    dispatch(authActions.logOutSuccess());
+  } catch (error) {
+    dispatch(authActions.logOutError(error.message));
+  }
+};
+
 const operations = {
-    register,
-    logIn,
-  };
-  export default operations;
+  register,
+  logIn,
+  logOut,
+};
+export default operations;
