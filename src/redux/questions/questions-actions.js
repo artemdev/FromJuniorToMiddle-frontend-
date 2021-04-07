@@ -1,13 +1,15 @@
-import { TECHNICAL_QA, TESTING_THEORY, ADD_RESULT } from './question-type';
 import { createAction } from '@reduxjs/toolkit';
 
-const technicalQA = createAction(TECHNICAL_QA);
+const technicalQA = createAction('questions/technicalQA');
 
-const testingTheory = createAction(TESTING_THEORY);
+const testingTheory = createAction('questions/testingTheory');
 
-const addResult = createAction(ADD_RESULT, (testId, testValue) => {
-  return { questionId: testId, answers: testValue };
-});
+const addResult = createAction('questions/results', (testId, testValue) => ({
+  payload: {
+    questionId: testId,
+    answers: testValue,
+  },
+}));
 
 const actions = { technicalQA, testingTheory, addResult };
 export default actions;

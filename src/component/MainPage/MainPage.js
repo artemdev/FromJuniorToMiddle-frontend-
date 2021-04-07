@@ -1,7 +1,7 @@
 import s from './MainPage.module.scss';
-
+import Loader from 'component/Loader';
 import MainPageContainer from './MainPageContainer';
-import Radio from './radio';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../../redux/questions/questions-actions';
 
@@ -17,21 +17,26 @@ const MainPage = ({ testActive, technicalQA, testingTheory }) => {
       <h3 className={s.author}>Linus Torvalds</h3>
       <p className={s.authorDesc}>Linux kernel creator, hacker, 1969</p>
       <section className={s.card}>
-        <MainPageContainer
-          to="/test"
-          testActive={testActive}
-          title={'QA technical training'}
-          className={s.oneContainer}
-          onClick={technicalQA}
-        />
-        <MainPageContainer
-          to="/test"
-          testActive={testActive}
-          title={'Testing theory'}
-          className={s.twoContainer}
-          onClick={testingTheory}
-        />
-        <Radio />
+        <NavLink to="/test" className={s.testLink}>
+          {<Loader /> && (
+            <MainPageContainer
+              testActive={testActive}
+              title={'QA technical training'}
+              className={s.oneContainer}
+              onClick={technicalQA}
+            />
+          )}
+        </NavLink>
+        <NavLink to="/test" className={s.testLink}>
+          {<Loader /> && (
+            <MainPageContainer
+              testActive={testActive}
+              title={'Testing theory'}
+              className={s.twoContainer}
+              onClick={testingTheory}
+            />
+          )}
+        </NavLink>
       </section>
     </main>
   );
@@ -43,7 +48,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   technicalQA: () => dispatch(actions.technicalQA()),
   testingTheory: () => dispatch(actions.testingTheory()),
-  onSubmit: (id, value) => dispatch(actions.addResult(id, value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

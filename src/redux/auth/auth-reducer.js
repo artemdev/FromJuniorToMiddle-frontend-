@@ -6,14 +6,15 @@ import * as authActions from './auth-actions';
 
 // нужен ли здесь password??????
 const initialUserState = {
-  user: { email: null, password: null },
+  email: null,
+  password: null,
 };
 
 // сюда будем записывать свойство user из responce
 // в payload будет свойство user и свойство token
 const user = createReducer(initialUserState, {
-  [authActions.registerSuccess]: (_, action) => action.payload.user,
-  [authActions.loginSuccess]: (_, action) => action.payload.user,
+  [authActions.registerSuccess]: (_, action) => action.payload,
+  [authActions.loginSuccess]: (_, action) => action.payload,
 });
 
 const error = createReducer(null, {
