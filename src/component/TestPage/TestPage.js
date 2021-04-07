@@ -11,7 +11,7 @@ import 'antd/dist/antd.css';
 import { Radio } from 'antd';
 // import { Radio, Input } from 'antd';
 
-axios.defaults.baseURL = 'http://localhost:3123';
+axios.defaults.baseURL = 'http://localhost:3000';
 
 export default function TestPage() {
   const [tests, setTests] = useState(null);
@@ -28,9 +28,9 @@ export default function TestPage() {
       return [];
     }
   }
-  // useEffect(() => {
-  //   getTests().then(tests => setTests(tests.data.tests));
-  // }, []);
+  useEffect(() => {
+    getTests().then(tests => setTests(tests.data.tests));
+  }, []);
 
   const handleChange = e => {
     setValue(e.target.value);
