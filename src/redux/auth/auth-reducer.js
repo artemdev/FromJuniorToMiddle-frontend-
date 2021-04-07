@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import { createReducer } from '@reduxjs/toolkit';
 import { TECHNICAL_QA, TESTING_THEORY } from '../questions/question-type';
-import authActions from './auth-actions'
+import * as authActions from './auth-actions'
 
 
 // нужен ли здесь password??????
@@ -29,6 +29,6 @@ const tokenReducer = (state = '', action) => state;
 export default combineReducers({
   user,
   error,
-  testActive: testActiveReducer,
+  // testActive: testActiveReducer,
   token: tokenReducer,
 });
