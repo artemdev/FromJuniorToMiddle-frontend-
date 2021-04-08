@@ -28,10 +28,16 @@ const persistConfig = {
   storage,
 };
 
+const userPersistConfig = {
+  key: 'User',
+  storage,
+  whitelist: ['token'],
+};
+
 const store = configureStore({
   reducer: {
     modalStatus: modalReducer,
-    user: userReducer,
+    user: persistReducer(userPersistConfig, userReducer),
     tests: persistReducer(persistConfig, questionsReducer),
   },
   middleware,

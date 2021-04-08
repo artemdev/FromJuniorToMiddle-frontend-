@@ -9,28 +9,35 @@ import {
   logOutError,
 } from './auth-actions';
 
-// нужен ли здесь password??????
 const initialUserState = {
+  name: null,
   email: null,
   token: null,
-  isLoggedIn: true,
+  isLoggedIn: false,
 };
 
-// сюда будем записывать свойство user из responce
-// в payload будет свойство user и свойство token
 const user = createReducer(initialUserState, {
-  [registerSuccess]: (_, action) => action.payload,
-  [loginSuccess]: (_, action) => action.payload,
+  [registerSuccess]: (state, action) => {
+    state.name = action.payload.data.name;
+    state.email = action.payload.data.email;
+    state.token = action.payload.data.token;
+    state.isLoggedIn = true;
+  },
+  [loginSuccess]: (state, action) => {
+    state.name = action.payload.data.name;
+    state.email = action.payload.data.email;
+    state.token = action.payload.data.token;
+    state.isLoggedIn = true;
+  },
   [logOutSuccess]: (state, _) => {
+    state.name = null;
     state.email = null;
-    state.isLoggedIn = false;
     state.token = null;
+    state.isLoggedIn = false;
   },
   // //пока что ничего не делаем со стейтом при ошибке
-  [registerError]: () => {},
-  [loginError]: () => {},
-  [logOutError]: () => {},
-
+  [registerError]: (_, action) => action.payload,
+  [loginError]: (_, action) => action.payload,
+  [logOutError]: (_, action) => action.payload,
 });
-
 export default user;
