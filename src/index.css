@@ -21,7 +21,8 @@ img {
   height: auto;
 }
 
-.link {
+.link,
+a {
   display: block;
   text-decoration: none;
 }
