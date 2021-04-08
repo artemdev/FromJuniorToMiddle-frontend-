@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { toggleModalAction } from '../../redux/modal/action';
 import { getModalStatus } from '../../redux/modal/selectors';
 import './NavLinks.scss';
+import routes from 'routes';
 
 const NavLinks = () => {
   const value = useSelector(getModalStatus);
@@ -19,7 +20,7 @@ const NavLinks = () => {
       <li className="nav-list__item" onClick={onToggleModal}>
         <NavLink
           exact
-          to="/"
+          to={routes.MAIN_VIEW}
           className="nav-list__item-link"
           activeClassName="active-nav-list__item-link"
         >
@@ -28,7 +29,7 @@ const NavLinks = () => {
       </li>
       <li className="nav-list__item" onClick={onToggleModal}>
         <NavLink
-          to="/useful-info"
+          to={routes.USEFUL_INFO_VIEW}
           className="nav-list__item-link"
           activeClassName="active-nav-list__item-link"
         >
@@ -37,7 +38,7 @@ const NavLinks = () => {
       </li>
       <li className="nav-list__item" onClick={onToggleModal}>
         <NavLink
-          to="/contacts"
+          to={routes.CONTACTS_VIEW}
           className="nav-list__item-link"
           activeClassName="active-nav-list__item-link"
         >

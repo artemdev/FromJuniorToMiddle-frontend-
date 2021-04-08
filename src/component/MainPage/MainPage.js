@@ -1,11 +1,14 @@
 import s from './MainPage.module.scss';
 import Loader from 'component/Loader';
 import MainPageContainer from './MainPageContainer';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+// import { Link, useRouteMatch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../../redux/questions/questions-actions';
+import routes from 'routes';
 
 const MainPage = ({ testActive, technicalQA, testingTheory }) => {
+  // const { url } = useRouteMatch();
   return (
     <main className={s.main}>
       <h2 className={s.quote}>
@@ -17,7 +20,7 @@ const MainPage = ({ testActive, technicalQA, testingTheory }) => {
       <h3 className={s.author}>Linus Torvalds</h3>
       <p className={s.authorDesc}>Linux kernel creator, hacker, 1969</p>
       <section className={s.card}>
-        <NavLink to="/test" className={s.testLink}>
+        <Link to={routes.TEST_VIEW} className={s.testLink}>
           {<Loader /> && (
             <MainPageContainer
               testActive={testActive}
@@ -26,8 +29,8 @@ const MainPage = ({ testActive, technicalQA, testingTheory }) => {
               onClick={technicalQA}
             />
           )}
-        </NavLink>
-        <NavLink to="/test" className={s.testLink}>
+        </Link>
+        <Link to={routes.TEST_VIEW} className={s.testLink}>
           {<Loader /> && (
             <MainPageContainer
               testActive={testActive}
@@ -36,7 +39,7 @@ const MainPage = ({ testActive, technicalQA, testingTheory }) => {
               onClick={testingTheory}
             />
           )}
-        </NavLink>
+        </Link>
       </section>
     </main>
   );

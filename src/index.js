@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
+import s from './App.module.scss';
 import App from './App';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
@@ -19,7 +19,7 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={<Loader />} persistor={persistor}>
         <BrowserRouter>
-          <App />
+          <App className={s.pageBody} />
         </BrowserRouter>
       </PersistGate>
     </Provider>

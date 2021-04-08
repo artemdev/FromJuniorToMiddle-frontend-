@@ -1,6 +1,6 @@
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-// import { Suspense } from 'react';
+import routes from './routes';
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { authOperations, authSelectors } from 'redux/auth';
@@ -12,7 +12,7 @@ import Loader from 'component/Loader';
 // import PublicRoute from 'component/PublicRoute';
 // import TestPageView from 'views/TestPageView';
 
-import Result from 'component/Results'; // !!!TEMPORARY ADDED
+// import Result from 'component/Results'; // !!!TEMPORARY ADDED
 import Footer from 'component/Footer';
 
 import { ToastContainer } from 'react-toastify';
@@ -41,9 +41,9 @@ const MainPageView = lazy(() =>
 const UsefulInfo = lazy(() =>
   import('views/UsefulInfo' /* webpackChunkName: "UsefulPageView" */),
 );
-// const NotFoundView = lazy(() =>
-//   import('views/NotFoundView' /* webpackChunkName: "NotFoundView" */),
-// );
+const NotFoundView = lazy(() =>
+  import('views/NotFoundView' /* webpackChunkName: "NotFoundView" */),
+);
 
 export default function App() {
   return (
@@ -53,31 +53,39 @@ export default function App() {
       <Container>
         <Suspense fallback={<Loader />}>
           <Switch>
-            {/* <PublicRoute path="/contacts"> */}
-            <ContactPageView path="/contacts" />
-            {/* </PublicRoute> */}
+            <Route path={routes.CONTACTS_VIEW}>
+              <ContactPageView />
+            </Route>
 
-            {/* <PublicRoute path="/auth"> */}
-            <AuthPageView path="/auth" />
+            <Route path={routes.AUTH_VIEW}>
+              <AuthPageView />
+            </Route>
+
+            <Route path={routes.MAIN_VIEW} exact>
+              <MainPageView />
+            </Route>
+
+            <Route path={routes.TEST_VIEW}>
+              <TestPageView />
+            </Route>
+
+            <Route path={routes.USEFUL_INFO_VIEW}>
+              <UsefulInfo literature={literature} resources={resources} />
+            </Route>
+
+            <Route>
+              <NotFoundView />
+            </Route>
+
             {/* </PublicRoute> */}
 
             {/* <PrivateRoute path="/" exact> */}
-            <MainPageView path="/" exact />
-            {/* </PrivateRoute> */}
 
-            <TestPageView path="/tests" />
+            {/* </PrivateRoute> */}
 
             {/* <PrivateRoute path="/useful-info"> */}
-            <UsefulInfo
-              path="/useful-info"
-              literature={literature}
-              resources={resources}
-            />
-            {/* </PrivateRoute> */}
 
-            {/* <PublicRoute> */}
-            {/* <NotFoundView /> */}
-            {/* </PublicRoute> */}
+            {/* </PrivateRoute> */}
           </Switch>
         </Suspense>
         {/* <Result /> */}
