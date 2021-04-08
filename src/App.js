@@ -17,6 +17,8 @@ import Footer from 'component/Footer';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import UsefulInfo from 'views/UsefulInfo';
+import { literature, resources } from './views/UsefulInfo/UsefulInfo.json';
 import('typeface-montserrat');
 
 const ContactPageView = lazy(() =>
@@ -36,9 +38,9 @@ const TestPageView = lazy(() =>
 const MainPageView = lazy(() =>
   import('views/MainPageView' /* webpackChunkName: "UsefulPageView" */),
 );
-// const UsefulPageView = lazy(() =>
-//   import('views/UsefulPageView' /* webpackChunkName: "UsefulPageView" */),
-// );
+const UsefulInfo = lazy(() =>
+  import('views/UsefulInfo' /* webpackChunkName: "UsefulPageView" */),
+);
 // const NotFoundView = lazy(() =>
 //   import('views/NotFoundView' /* webpackChunkName: "NotFoundView" */),
 // );
@@ -62,9 +64,15 @@ export default function App() {
             {/* <PrivateRoute path="/" exact> */}
             <MainPageView path="/" exact />
             {/* </PrivateRoute> */}
-            <TestPageView path="/test" />
+
+            <TestPageView path="/tests" />
+
             {/* <PrivateRoute path="/useful-info"> */}
-            {/* <UsefulPageView /> */}
+            <UsefulInfo
+              path="/useful-info"
+              literature={literature}
+              resources={resources}
+            />
             {/* </PrivateRoute> */}
 
             {/* <PublicRoute> */}
@@ -72,7 +80,7 @@ export default function App() {
             {/* </PublicRoute> */}
           </Switch>
         </Suspense>
-        <Result />
+        {/* <Result /> */}
         <ToastContainer
           position="top-right"
           autoClose={3000}

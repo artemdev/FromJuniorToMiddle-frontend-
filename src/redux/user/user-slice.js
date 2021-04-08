@@ -19,10 +19,10 @@ const userSlice = createSlice({
       state.isLoggedIn = true;
       state.user = action.payload.user;
     },
-    [logOut.fulfilled](state, action) {
-      state.token = null;
-      state.isLoggedIn = false;
-      state.user = null;
+    [logOut.fulfilled](state, _) {
+      state.user.token = null;
+      state.user.isLoggedIn = false;
+      state.user.data = null;
     },
     [signUp.fulfilled](state, action) {
       state.token = action.payload.token;

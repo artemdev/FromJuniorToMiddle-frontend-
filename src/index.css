@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: 'Montserrat';
   font-size: 10px;
+  background-color: #e5e5e5;
 }
 
 html {
@@ -20,7 +21,8 @@ img {
   height: auto;
 }
 
-.link {
+.link,
+a {
   display: block;
   text-decoration: none;
 }

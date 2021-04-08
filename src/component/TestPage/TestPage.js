@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import s from './TestPage.module.scss';
 import axios from 'axios';
+import { Radio } from 'antd';
+// import 'antd/dist/antd.css';
 // import Radio from '@material-ui/core/Radio';
 // import RadioGroup from '@material-ui/core/RadioGroup';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import FormControl from '@material-ui/core/FormControl';
 // import FormLabel from '@material-ui/core/FormLabel';
 // import { makeStyles } from '@material-ui/core/styles';
-import { Radio } from 'antd';
-// import { Radio, Input } from 'antd';
+
 
 axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
 
@@ -52,7 +53,6 @@ export default function TestPage() {
     <>
       {tests && (
         <section className={s.testsSection}>
-          <div className={s.header}></div>
           <div className={s.testCard}>
             <p className={s.questionNumber}>
               Question{' '}
@@ -75,20 +75,24 @@ export default function TestPage() {
           <div className={s.btnWrapper}>
             {index === 0 ? (
               <button className={s.nextBtn_disabled} disabled>
-                Back
+                Previous question
               </button>
             ) : (
               <button className={s.nextBtn_active} onClick={moveBack}>
-                Back
+                Previous question
               </button>
             )}
             {!value ? (
               <button className={s.nextBtn_disabled} disabled>
-                Next
+                Next question
+              </button>
+            ) : index === 11 ? (
+              <button className={s.nextBtn_active} onClick={moveNext}>
+                Finish test
               </button>
             ) : (
               <button className={s.nextBtn_active} onClick={moveNext}>
-                Next
+                Next question
               </button>
             )}
           </div>

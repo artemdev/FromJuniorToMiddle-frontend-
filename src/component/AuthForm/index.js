@@ -22,7 +22,7 @@ export default function AuthForm() {
   // Sign In (Войти)
   const handleClickLogIn = e => {
     e.preventDefault();
-    dispatch(authOperations.logIn(email, password));
+    dispatch(authOperations.logIn({email, password}));
     setEmail('');
     setPassword('');
   };
@@ -30,7 +30,7 @@ export default function AuthForm() {
   // Sign Up (Регистрация)
   const handleClickRegister = e => {
     e.preventDefault();
-    dispatch(authOperations.register(email, password));
+    dispatch(authOperations.register({email, password}));
     setEmail('');
     setPassword('');
   };
