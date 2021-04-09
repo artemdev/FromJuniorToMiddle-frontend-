@@ -1,0 +1,151 @@
+.card {
+  width: 280px;
+  height: 370px;
+
+  background-color: #ffffff;
+  filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.05));
+
+  transition: transform 250ms;
+
+  @media screen and (min-width: 768px) {
+    width: 352px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 295px;
+  }
+}
+
+.card:hover,
+.card:focus {
+  transform: scale(1.03);
+  filter: drop-shadow(0px 3px 9px rgba(0, 0, 0, 0.15));
+}
+
+.imageBox {
+  width: 100%;
+  height: 244px;
+
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.position {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.info {
+  padding: 20px;
+
+  text-align: start;
+
+  opacity: 1;
+  transition: opacity 250ms;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 29px;
+  }
+}
+
+.links {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateX(-100%);
+}
+
+.card:hover .links,
+.card:focus .links {
+  transform: translateX(0%);
+}
+
+.card:hover .info,
+.card:focus .info {
+  opacity: 0;
+}
+
+.name {
+  margin-bottom: 6px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: #000000;
+}
+
+.position {
+  margin-bottom: 10px;
+
+  font-family: 'Montserrat';
+  font-size: 12px;
+  line-height: 12px;
+
+  letter-spacing: 0.02em;
+
+  color: #555555;
+}
+
+.description {
+  font-family: 'Montserrat';
+  font-size: 12px;
+  line-height: 16px;
+
+  letter-spacing: 0.02em;
+
+  color: #000000;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  text-decoration: none;
+  color: #000000;
+
+  transition: font-size 250ms;
+}
+
+.link:hover,
+.link:focus {
+  font-size: 20px;
+}
+
+.link:not(:last-child) {
+  margin-right: 20px;
+}
+
+.git {
+  width: 40px;
+  height: 40px;
+
+  margin-right: 10px;
+}
+
+.linkedin {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+
+  fill: #0e76a8;
+}
