@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import s from './TestPage.module.scss';
 import axios from 'axios';
 import { Radio } from 'antd';
+import { useDispatch } from 'react-redux';
+import actions from 'redux/questions/questions-actions';
 // import 'antd/dist/antd.css';
 // import Radio from '@material-ui/core/Radio';
 // import RadioGroup from '@material-ui/core/RadioGroup';
@@ -18,6 +20,18 @@ export default function TestPage() {
   const [value, setValue] = useState(null);
   // const [answers, setAnswers] = useState([]);
 
+  const dispatch = useDispatch(); //
+  // нужно передать значение ответа и id вопроса
+  // const addResult = () => dispatch(actions.addResult(value,questionsId));
+
+  //для примера
+  const addResult = () => dispatch(actions.addResult('value-1', 'id-1'));
+  //функция для 2-ч обработчиков по onClick
+  const two = () => {
+    moveNext();
+    addResult();
+  };
+
   async function getTests() {
     try {
       const { data } = await axios.get('/tests/technicalQA');
@@ -32,6 +46,7 @@ export default function TestPage() {
   }, []);
 
   const handleChange = e => {
+    console.log(e.target.value);
     setValue(e.target.value);
   };
   const moveNext = () => {
@@ -86,11 +101,19 @@ export default function TestPage() {
                 Next question
               </button>
             ) : index === 11 ? (
-              <button className={s.nextBtn_active} onClick={moveNext}>
+              <button
+                className={s.nextBtn_active}
+                // onClick={moveNext}
+                // onClick={two}
+              >
                 Finish test
               </button>
             ) : (
-              <button className={s.nextBtn_active} onClick={moveNext}>
+              <button
+                className={s.nextBtn_active}
+                // onClick={moveNext}
+                onClick={two}
+              >
                 Next question
               </button>
             )}
