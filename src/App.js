@@ -1,6 +1,6 @@
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-// import { Suspense } from 'react';
+import routes from './routes';
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { authOperations, authSelectors } from 'redux/auth';
@@ -10,11 +10,17 @@ import AppBar from 'component/AppBar';
 import Loader from 'component/Loader';
 // import PrivateRoute from 'component/PrivateRoute';
 // import PublicRoute from 'component/PublicRoute';
+// import TestPageView from 'views/TestPageView';
+
 
 import Result from 'component/Results'; // !!!TEMPORARY ADDED
 
+import Footer from 'component/Footer';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import UsefulInfo from 'views/UsefulInfo';
+import { literature, resources } from './views/UsefulInfo/UsefulInfo.json';
 import('typeface-montserrat');
 
 const ContactPageView = lazy(() =>
@@ -28,45 +34,63 @@ const AuthPageView = lazy(() =>
   ),
 );
 
-const MainPageView = lazy(() =>
-  import('views/MainPageView' /* webpackChunkName: "MainPageView" */),
+const TestPageView = lazy(() =>
+  import('./views/TestPageView' /* webpackChunkName: "TestPageView" */),
 );
-// const UsefulPageView = lazy(() =>
-//   import('views/UsefulPageView' /* webpackChunkName: "UsefulPageView" */),
-// );
-// const NotFoundView = lazy(() =>
-//   import('views/NotFoundView' /* webpackChunkName: "NotFoundView" */),
-// );
+const MainPageView = lazy(() =>
+  import('views/MainPageView' /* webpackChunkName: "UsefulPageView" */),
+);
+const UsefulInfo = lazy(() =>
+  import('views/UsefulInfo' /* webpackChunkName: "UsefulPageView" */),
+);
+const NotFoundView = lazy(() =>
+  import('views/NotFoundView' /* webpackChunkName: "NotFoundView" */),
+);
 
 export default function App() {
   return (
     <>
       <AppBar />
+
       <Container>
         <Suspense fallback={<Loader />}>
           <Switch>
-            {/* <PublicRoute path="/contacts"> */}
-            <ContactPageView path="/contacts" />
-            {/* </PublicRoute> */}
+            <Route path={routes.CONTACTS_VIEW}>
+              <ContactPageView />
+            </Route>
 
-            {/* <PublicRoute path="/auth"> */}
-            <AuthPageView path="/auth" />
+            <Route path={routes.AUTH_VIEW}>
+              <AuthPageView />
+            </Route>
+
+            <Route path={routes.MAIN_VIEW} exact>
+              <MainPageView />
+            </Route>
+
+            <Route path={routes.TEST_VIEW}>
+              <TestPageView />
+            </Route>
+
+            <Route path={routes.USEFUL_INFO_VIEW}>
+              <UsefulInfo literature={literature} resources={resources} />
+            </Route>
+
+            <Route>
+              <NotFoundView />
+            </Route>
+
             {/* </PublicRoute> */}
 
             {/* <PrivateRoute path="/" exact> */}
-            <MainPageView path="/" exact />
+
             {/* </PrivateRoute> */}
 
             {/* <PrivateRoute path="/useful-info"> */}
-            {/* <UsefulPageView /> */}
-            {/* </PrivateRoute> */}
 
-            {/* <PublicRoute> */}
-            {/* <NotFoundView /> */}
-            {/* </PublicRoute> */}
+            {/* </PrivateRoute> */}
           </Switch>
         </Suspense>
-        <Result />
+        {/* <Result /> */}
         <ToastContainer
           position="top-right"
           autoClose={3000}
@@ -79,6 +103,7 @@ export default function App() {
           pauseOnHover
         />
       </Container>
+      <Footer />
     </>
   );
 }

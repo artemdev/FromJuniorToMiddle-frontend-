@@ -1,6 +1,6 @@
 import Logo from '../Logo';
 // import PublicNavItem from '../PublicNavItem';
-import UserMenu from '../UserMenu';
+import NavLinks from '../NavLinks';
 import './Navigation.scss';
 
 const Navigation = () => {
@@ -8,7 +8,7 @@ const Navigation = () => {
     <nav className="site-navigation">
       <Logo />
       <div className="is-visible">
-        <UserMenu />
+        <NavLinks />
         {/* <PublicNavItem /> */}
       </div>
     </nav>

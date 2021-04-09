@@ -1,0 +1,40 @@
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: #02172a;
+  text-align: center;
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    max-width: 767px;
+    padding: 10px 18px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: 768px;
+    padding: 19px 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 1280px;
+  }
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.4);
+  font: weight 400px;
+  letter-spacing: 0.04em;
+}
+
+.heartIcon {
+  display: inline-block;
+  fill: #ff6b09;
+  vertical-align: text-bottom;
+  margin: 5px 2px 0px 2px;
+}
