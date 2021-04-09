@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import actions from '../../redux/questions/questions-actions';
 import routes from 'routes';
 
-const MainPage = ({ testActive, technicalQA, testingTheory }) => {
+const MainPage = ({ testActive, technicalQA, testingTheory, deleteResult }) => {
   // const { url } = useRouteMatch();
   return (
     <main className={s.main}>
@@ -49,6 +49,7 @@ const mapStateToProps = state => ({
   testActive: state.testActive,
 });
 const mapDispatchToProps = dispatch => ({
+  deleteResult: () => dispatch(actions.deleteResult()),
   technicalQA: () => dispatch(actions.technicalQA()),
   testingTheory: () => dispatch(actions.testingTheory()),
 });
