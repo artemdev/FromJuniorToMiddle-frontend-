@@ -3,14 +3,19 @@ import Loader from 'component/Loader';
 import MainPageContainer from './MainPageContainer';
 import { Link } from 'react-router-dom';
 // import { Link, useRouteMatch } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../redux/questions/questions-actions';
 import routes from 'routes';
 
-const MainPage = ({ testActive, technicalQA, testingTheory }) => {
+export default function MainPage() {
   // const { url } = useRouteMatch();
+  const testActive = useSelector(state => state.testActive);
+  const dispatch = useDispatch();
+  const technicalQA = () => dispatch(actions.technicalQA());
+  const testingTheory = () => dispatch(actions.testingTheory());
+
   return (
-    <main className={s.main}>
+    <div className={s.main}>
       <h2 className={s.quote}>
         "Regression testing. What is it?
         <span className={s.textBr}>
@@ -41,16 +46,6 @@ const MainPage = ({ testActive, technicalQA, testingTheory }) => {
           )}
         </Link>
       </section>
-    </main>
+    </div>
   );
-};
-
-const mapStateToProps = state => ({
-  testActive: state.testActive,
-});
-const mapDispatchToProps = dispatch => ({
-  technicalQA: () => dispatch(actions.technicalQA()),
-  testingTheory: () => dispatch(actions.testingTheory()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+}
