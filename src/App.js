@@ -12,8 +12,7 @@ import Loader from 'component/Loader';
 // import PublicRoute from 'component/PublicRoute';
 // import TestPageView from 'views/TestPageView';
 
-
-import Result from 'component/Results'; // !!!TEMPORARY ADDED
+// import Result from 'component/Results'; // !!!TEMPORARY ADDED
 
 import Footer from 'component/Footer';
 
