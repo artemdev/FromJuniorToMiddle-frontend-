@@ -13,7 +13,7 @@ const initialUserState = {
   name: null,
   email: null,
   token: null,
-  isLoggedIn: false,
+  isLoggedIn: true,
 };
 
 const user = createReducer(initialUserState, {

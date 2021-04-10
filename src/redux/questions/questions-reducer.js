@@ -7,7 +7,7 @@ const testActiveReducer = createReducer('', {
   [action.testingTheory]: () => 'testing theory',
 });
 const question = createReducer([], {
-  [action.addResult]: (_, { payload }) => [payload],
+  [action.addResult]: (state, { payload }) => [...state, payload],
   [action.deleteResult]: () => [],
 });
 
