@@ -10,10 +10,18 @@ const testActiveReducer = createReducer('', {
 });
 
 const question = createReducer([], {
-
-  [action.addResult]: (_, { payload }) => [payload],
+  [action.addResult]: (state, { payload }) => [...state, payload],
   [action.getResultSuccess]: (_, { payload }) => payload,
   [action.deleteResultSuccess]: () => initialResultState,
+});
+const randomTest = createReducer([], {
+  [action.getQuestions]: (state, { payload }) => {
+    console.log(payload.question);
+  },
+});
+
+const testIndex = createReducer(null, {
+  [action.getQuestions]: (state, { payload }) => payload.questionId,
 });
 
 const loading = createReducer(false, {
@@ -33,6 +41,8 @@ const error = createReducer(null, {
 export default combineReducers({
   testActive: testActiveReducer,
   question: question,
+  randomTest,
+  testIndex,
   loading,
   error,
 });
