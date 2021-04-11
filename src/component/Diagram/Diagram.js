@@ -6,8 +6,7 @@ import styles from './Diagram.module.scss';
 // defaults.global.legend.position = "right";
 defaults.global.responsive = true;
 
-const Diagram = ({ correct = 11 }) => {
-  let total = 12;
+const Diagram = ({ correct = 11, total = 12 }) => {
   const pсtCorrect = Math.round((correct * 100) / total);
   const pсtIncorrect = 100 - pсtCorrect;
 
