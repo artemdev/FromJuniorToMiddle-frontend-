@@ -81,6 +81,15 @@ export default function App() {
             </Route>
 
             <Route path={routes.USEFUL_INFO_VIEW}>
+              <UsefulInfo literature={literature} resources={resources} />
+            </Route>
+
+
+            <Route path={routes.RESULT_VIEW}>
+              <ResultPageView />
+            </Route>
+
+            <Route path={routes.USEFUL_INFO_VIEW}>
 
               <UsefulInfo literature={literature} resources={resources} />
             </PrivateRoute>

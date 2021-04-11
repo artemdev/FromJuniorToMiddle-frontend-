@@ -28,7 +28,6 @@ const loading = createReducer(false, {
 const error = createReducer(null, {
   [action.getResultError]: (_, { payload }) => payload,
   [action.deleteResultError]: (_, { payload }) => payload,
-
 });
 
 export default combineReducers({
