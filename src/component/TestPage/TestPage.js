@@ -1,72 +1,91 @@
 import { useState, useEffect } from 'react';
 import s from './TestPage.module.scss';
-import axios from 'axios';
 import { Radio } from 'antd';
-import { useDispatch } from 'react-redux';
-import actions from 'redux/questions/questions-actions';
-// import 'antd/dist/antd.css';
-// import Radio from '@material-ui/core/Radio';
-// import RadioGroup from '@material-ui/core/RadioGroup';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import FormControl from '@material-ui/core/FormControl';
-// import FormLabel from '@material-ui/core/FormLabel';
-// import { makeStyles } from '@material-ui/core/styles';
+import getTests from '../../service/serviceTests';
+import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import questionActions from '../../redux/questions/questions-actions';
 
-axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
 
 export default function TestPage() {
-  const [tests, setTests] = useState(null);
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
   const [value, setValue] = useState(null);
-  // const [answers, setAnswers] = useState([]);
 
-  const dispatch = useDispatch(); //
-  // нужно передать значение ответа и id вопроса
-  // const addResult = () => dispatch(actions.addResult(value,questionsId));
 
-  //для примера
-  const addResult = () => dispatch(actions.addResult('value-1', 'id-1'));
-  //функция для 2-ч обработчиков по onClick
-  const two = () => {
-    moveNext();
-    addResult();
-  };
+  const testName = useSelector(state => state.tests.testActive);
+  const userAnswers = useSelector(state => state.tests.question);
+  const randomQuestions = useSelector(state => state.tests.randomQuestions);
+  const index = useSelector(state => state.tests.index);
 
-  async function getTests() {
-    try {
-      const { data } = await axios.get('/tests/technicalQA');
-      return data;
-    } catch (error) {
-      console.log('error', { error });
-      return [];
-    }
-  }
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getTests().then(tests => setTests(tests.data.tests));
-  }, []);
+    if (randomQuestions) {
+      return;
+    }
+
+    if (testName === 'technical QA') {
+      // dispatch(questionActions.removeRusult());
+
+      getTests('/tests/technicalQA').then(tests =>
+        dispatch(questionActions.addRandomQuestions(tests.data.tests)),
+      );
+
+    }
+    getTests('/tests/testingTheory').then(tests =>
+      dispatch(questionActions.addRandomQuestions(tests.data.tests)),
+    );
+  }, [randomQuestions, testName]);
+
+  useEffect(() => {
+    if (!randomQuestions) {
+      return;
+    }
+    userAnswers.map(question => {
+      if (question.questionId === randomQuestions[index].questionId) {
+        setValue(question.answers);
+      }
+    });
+  }, [index, randomQuestions, userAnswers]);
 
   const handleChange = e => {
     console.log(e.target.value);
     setValue(e.target.value);
   };
   const moveNext = () => {
-    if (index === tests.length - 1) {
+    if (index === randomQuestions.length - 1) {
       return;
     }
+    dispatch(
+      questionActions.addResult(randomQuestions[index].questionId, value),
+    );
+    // dispatch(questionActions.removeRusult());
+
     setValue(null);
-    setIndex(prevState => prevState + 1);
+    dispatch(questionActions.addIndex(1));
+    // setIndex(prevState => prevState + 1);
   };
   const moveBack = () => {
     if (index === -1) {
       return;
     }
-    setIndex(prevState => prevState - 1);
+    dispatch(questionActions.addIndex(-1));
+    // setIndex(prevState => prevState - 1);
+  };
+  const finishTest = () => {
+    dispatch(questionActions.removeRusult());
   };
 
   return (
     <>
-      {tests && (
+      {randomQuestions && (
         <section className={s.testsSection}>
+          <div className={s.testHeaderWrapper}>
+            <h2 className={s.testName}>{testName}</h2>
+            <NavLink to="/" className={s.finishBtn} onClick={finishTest}>
+              Finish test
+            </NavLink>
+          </div>
           <div className={s.testCard}>
             <p className={s.questionNumber}>
               Question{' '}
@@ -75,9 +94,10 @@ export default function TestPage() {
               }`}</span>{' '}
               / 12
             </p>
-            <h2 className={s.question}>{tests[index].question}</h2>
+            <h2 className={s.question}>{randomQuestions[index].question}</h2>
+
             <Radio.Group onChange={handleChange} value={value}>
-              {tests[index].answers.map(question => (
+              {randomQuestions[index].answers.map(question => (
                 <>
                   <Radio value={question} className={s.anwersItem}>
                     {question}
@@ -100,14 +120,7 @@ export default function TestPage() {
               <button className={s.nextBtn_disabled} disabled>
                 Next question
               </button>
-            ) : index === 11 ? (
-              <button
-                className={s.nextBtn_active}
-                // onClick={moveNext}
-                // onClick={two}
-              >
-                Finish test
-              </button>
+
             ) : (
               <button
                 className={s.nextBtn_active}
@@ -123,24 +136,3 @@ export default function TestPage() {
     </>
   );
 }
-
-// {
-//   <FormControl component="fieldset">
-//               <FormLabel component="legend">{tests[index].question}</FormLabel>
-//               <RadioGroup
-//                 aria-label={tests[index].question}
-//                 name={tests[index].question}
-//                 value={value}
-//                 onChange={handleChange}
-//               >
-//                 {tests[index].answers.map(question => (
-//                   <FormControlLabel
-//                     className={classes.root}
-//                     value={question}
-//                     control={<Radio />}
-//                     label={question}
-//                   />
-//                 ))}
-//               </RadioGroup>
-//             </FormControl>
-// }

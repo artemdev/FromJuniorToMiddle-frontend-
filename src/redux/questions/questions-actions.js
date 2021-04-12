@@ -10,6 +10,12 @@ const addResult = createAction('questions/results', (testId, testValue) => ({
   },
 }));
 
+const removeRusult = createAction('questions/removeRusult');
+
+const addRandomQuestions = createAction('questions/addRandomQuestions');
+
+const addIndex = createAction('questions/addIndex');
+
 const getQuestions = createAction('questions/getQuestions');
 const testIndex = createAction('questions/testIndex');
 
@@ -33,5 +39,9 @@ const actions = {
   deleteResultError,
   getQuestions,
   testIndex,
+  addRandomQuestions,
+  removeRusult,
+  addIndex
 };
+
 export default actions;
