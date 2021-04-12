@@ -1,12 +1,23 @@
-// .container {
-//   width: 280px;
-//   margin: 0 auto;
 
-//   @media (min-width: 768px) {
-//     width: 715px;
-//   }
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
 
-//   @media (min-width: 1024px) {
-//     width: 964px;
-//   }
-// }
+@media screen and (max-width: 767px) {
+  .container {
+    min-width: 320px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    min-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}

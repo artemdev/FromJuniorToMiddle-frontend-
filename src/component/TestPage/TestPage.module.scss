@@ -124,9 +124,18 @@
   }
 }
 .btnWrapper {
-  width: 100%;
+  // width: 100%;
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 767px) {
+    min-width: 280px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 652px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 820px;
+  }
 }
 .nextBtn_active,
 .nextBtn_disabled {
