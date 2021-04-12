@@ -1,9 +1,13 @@
 import s from './MainPage.module.scss';
 
-const MainPageContainer = ({ title, className, onClick }) => {
+const MainPageContainer = ({ title, className, onClick, disabled }) => {
   return (
     <>
-      <div onClick={onClick} className={`${className} ${s.container}`}>
+      <button
+        disabled={disabled}
+        onClick={onClick}
+        className={`${className} ${s.container}`}
+      >
         <p className={s.ContainerText}>{title}</p>
 
         <svg
@@ -26,7 +30,7 @@ const MainPageContainer = ({ title, className, onClick }) => {
             </clipPath>
           </defs>
         </svg>
-      </div>
+      </button>
     </>
   );
 };

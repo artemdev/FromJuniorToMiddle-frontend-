@@ -105,7 +105,7 @@ export default function App() {
             </PublicRoute>
           </Switch>
         </Suspense>
-        {/* <Result /> */}
+
         <ToastContainer
           position="top-right"
           autoClose={3000}

@@ -11,8 +11,6 @@ const testActiveReducer = createReducer('', {
 });
 
 const question = createReducer([], {
-
-  // [action.addResult]: (state, { payload }) => [payload],
   [action.addResult]: (state, { payload }) => [
     ...state.filter(question => question.questionId !== payload.questionId),
 
@@ -21,11 +19,6 @@ const question = createReducer([], {
   [action.removeRusult]: () => [],
   [action.getResultSuccess]: (_, { payload }) => payload,
   [action.deleteResultSuccess]: () => initialResultState,
-});
-const randomTest = createReducer([], {
-  [action.getQuestions]: (state, { payload }) => {
-    console.log(payload.question);
-  },
 });
 
 const randomQuestions = createReducer(null, {
@@ -36,11 +29,6 @@ const randomQuestions = createReducer(null, {
 const index = createReducer(0, {
   [action.addIndex]: (state, { payload }) => state + payload,
   [action.removeRusult]: () => 0,
-
-});
-
-const testIndex = createReducer(null, {
-  [action.getQuestions]: (state, { payload }) => payload.questionId,
 });
 
 const loading = createReducer(false, {
@@ -62,11 +50,8 @@ export default combineReducers({
   question: question,
   randomQuestions,
   index,
-  randomTest,
-  testIndex,
   loading,
   error,
-
 });
 
 // ...state.map(question => {

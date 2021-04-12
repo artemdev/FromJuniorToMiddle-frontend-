@@ -9,7 +9,7 @@ import routes from 'routes';
 
 export default function MainPage() {
   // const { url } = useRouteMatch();
-  const testActive = useSelector(state => state.testActive);
+  const testActive = useSelector(state => state.tests.testActive);
   const dispatch = useDispatch();
   const technicalQA = () => dispatch(actions.technicalQA());
   const testingTheory = () => dispatch(actions.testingTheory());
@@ -26,10 +26,16 @@ export default function MainPage() {
       <p className={s.authorDesc}>Linux kernel creator, hacker, 1969</p>
       <section className={s.card}>
         <Link to={routes.TEST_VIEW} className={s.testLink}>
+          {/* <Link to={`${url}/${routes.TEST_VIEW}`} className={s.testLink}> */}
           {<Loader /> && (
             <MainPageContainer
+              disabled={true}
               testActive={testActive}
-              title={'QA technical training'}
+              title={
+                testActive === 'technical QA'
+                  ? 'Сontinue the test'
+                  : 'QA technical training'
+              }
               className={s.oneContainer}
               onClick={technicalQA}
             />
@@ -38,8 +44,13 @@ export default function MainPage() {
         <Link to={routes.TEST_VIEW} className={s.testLink}>
           {<Loader /> && (
             <MainPageContainer
+              disabled={false}
               testActive={testActive}
-              title={'Testing theory'}
+              title={
+                testActive === 'testing theory'
+                  ? 'Сontinue the test'
+                  : 'Testing theory'
+              }
               className={s.twoContainer}
               onClick={testingTheory}
             />
