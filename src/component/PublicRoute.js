@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 import routes from 'routes';
-import { getLoggedIn } from 'redux/auth/auth-selectors';
+import { authSelectors } from 'redux/auth';
 
 export default function PublickRoute({
   children,
@@ -9,7 +9,7 @@ export default function PublickRoute({
   restricted = false,
   ...routeProps
 }) {
-  const isLoggedIn = useSelector(getLoggedIn);
+  const isLoggedIn = useSelector(authSelectors.getLoggedIn);
   const shouldredirect = isLoggedIn && restricted;
 
   return (

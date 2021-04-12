@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import questionsReducer from './questions/questions-reducer';
-import userReducer from './auth/auth-reducer';
+import { authReducer } from './auth';
 import { modalReducer } from './modal/reducer';
 import logger from 'redux-logger';
 import {
@@ -28,22 +28,20 @@ const persistConfig = {
   storage,
 };
 
-const userPersistConfig = {
-  key: 'User',
+const authPersistConfig = {
+  key: 'user',
   storage,
   whitelist: ['token'],
 };
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    modalStatus: modalReducer,
-    user: persistReducer(userPersistConfig, userReducer),
+    user: persistReducer(authPersistConfig, authReducer),
     tests: persistReducer(persistConfig, questionsReducer),
+    modalStatus: modalReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
 });
 
-const persistor = persistStore(store);
-
-export { store, persistor };
+export const persistor = persistStore(store);

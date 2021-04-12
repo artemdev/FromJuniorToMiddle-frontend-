@@ -16,21 +16,26 @@
   margin-bottom: 20px;
 }
 .buttonGoogleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 .buttonGoogle {
+  display: block;
+  width: 159px;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 49px;
   letter-spacing: 0.02em;
   color: #000000;
   background-color: #fafafa;
   // border:none  сливается кнопка, не видно края
   border: 1px solid #ced2d1;
   text-align: center;
-  padding: 18px 38px;
+  // padding: 18px 38px;
   margin-bottom: 30px;
   cursor: pointer;
 }
@@ -133,7 +138,7 @@
   }
 
   .buttonGoogleWrapper {
-    text-align: left;
+    justify-content: flex-start;
   }
 
   .buttonGoogle {
@@ -178,7 +183,7 @@
   }
 
   .buttonGoogleWrapper {
-    text-align: left;
+    justify-content: flex-start;
   }
 
   .buttonGoogle {

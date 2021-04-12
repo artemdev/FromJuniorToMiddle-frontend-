@@ -1,6 +1,7 @@
 .signOutIcon {
   width: 16px;
   height: 16px;
+  cursor: pointer;
   @media (max-width: 768px) {
     // margin-right: 10px;
     display: none;
@@ -25,7 +26,6 @@
   cursor: pointer;
 }
 .name {
-  font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

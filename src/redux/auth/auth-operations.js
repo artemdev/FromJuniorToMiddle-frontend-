@@ -1,7 +1,11 @@
 import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as authActions from './auth-actions';
 
 axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
+
+// http://localhost:3030 не видаляти, необхідно для проведення тестів
+// axios.defaults.baseURL = 'http://localhost:3030';
 
 const token = {
   set(token) {
@@ -38,21 +42,58 @@ const logIn = credentials => async dispatch => {
   }
 };
 
-const logOut = () => async dispatch => {
+const logout = createAsyncThunk('auth/logout', async () => {
   try {
-    dispatch(authActions.logOutRequest());
-    //заработает когда будет авторизация
-    await axios.post('auth/logout');
+    await axios.post('/auth/logout');
     token.unset();
-    dispatch(authActions.logOutSuccess());
   } catch (error) {
-    dispatch(authActions.logOutError(error.message));
+    console.log(error.message);
   }
-};
+});
+
+const requestToMongo = createAsyncThunk(
+  'auth/googleAuth',
+  async accessToken => {
+    try {
+      const { data } = await axios({
+        url: '/auth/user',
+        method: 'get',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const fetchCurrentUser = createAsyncThunk(
+  'auth/fetchCurrentUser',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const localstoragedToken = state.user.token;
+    if (localstoragedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+
+    token.set(localstoragedToken);
+
+    try {
+      const { data } = await axios.get('/auth/user');
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
 
 const operations = {
   register,
   logIn,
-  logOut,
+  logout,
+  requestToMongo,
+  fetchCurrentUser,
 };
 export default operations;

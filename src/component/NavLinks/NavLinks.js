@@ -4,11 +4,11 @@ import { toggleModalAction } from '../../redux/modal/action';
 import { getModalStatus } from '../../redux/modal/selectors';
 import './NavLinks.scss';
 import routes from 'routes';
-import { getLoggedIn } from 'redux/auth/auth-selectors';
+import { authSelectors } from 'redux/auth';
 
 const NavLinks = () => {
   const value = useSelector(getModalStatus);
-  const isLoggedIn = useSelector(getLoggedIn);
+  const isLoggedIn = useSelector(authSelectors.getLoggedIn);
   const dispatch = useDispatch();
 
   function onToggleModal() {

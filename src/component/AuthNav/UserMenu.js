@@ -2,22 +2,27 @@ import icon from '../../icon/sign-out.svg';
 import styles from './styles.module.scss';
 import React, { useEffect, useState } from 'react';
 import operations from '../../redux/auth/auth-operations';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelectors } from '../../redux/auth';
 
-function AuthHav({ logOut }) {
+function AuthHav() {
   const [name, setName] = useState();
   const [avatarUrl, setAvatarUrl] = useState();
+  const dispatch = useDispatch();
+  const userAvatar = useSelector(authSelectors.getUserAvatar);
+  const userName = useSelector(authSelectors.getUsername);
 
   useEffect(() => {
-    setName('Artem');
-    setAvatarUrl(
-      'https://s.gravatar.com/avatar/960f3e39e8c8835d3a9d5a37eafb8819?s=250',
-    );
-  }, []);
+    try {
+      setName(userName);
+      setAvatarUrl(userAvatar);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [userName, userAvatar]);
 
-  const handleLogOut = e => {
-    e.preventDefault();
-    logOut();
+  const handleLogOut = () => {
+    dispatch(operations.logout());
   };
 
   return (
@@ -31,7 +36,7 @@ function AuthHav({ logOut }) {
       />
       <span className={styles.name}>{name}</span>
 
-      <a onClick={handleLogOut} href="/">
+      <div onClick={handleLogOut}>
         <img
           className={styles.signOutIcon}
           src={icon}
@@ -39,15 +44,9 @@ function AuthHav({ logOut }) {
           width="16"
           height="16"
         />
-      </a>
+      </div>
     </div>
   );
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    logOut: () => dispatch(operations.logOut()),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(AuthHav);
+export default AuthHav;
