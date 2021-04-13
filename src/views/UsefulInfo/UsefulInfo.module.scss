@@ -23,6 +23,9 @@
   }
   @media screen and (min-width: 1280px) {
     background-image: url('./images/usefulInfoDesktop.jpg');
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
   }
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
     screen and (min-resolution: 192dpi) and (min-width: 1280px),
