@@ -14,13 +14,21 @@
   }
 }
 .testHeaderWrapper {
-  width: 100%;
+  // width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  @media screen and (max-width: 767px) {
+    min-width: 280px;
+  }
   @media (min-width: 768px) {
     margin-bottom: 28px;
+    width: 652px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 820px;
   }
 }
 .testName {
