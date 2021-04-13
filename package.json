@@ -39,7 +39,8 @@
     "typeface-montserrat": "^1.1.13",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.6",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
