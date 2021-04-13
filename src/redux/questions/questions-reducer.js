@@ -4,7 +4,7 @@ import action from './questions-actions';
 
 const initialResultState = [];
 
-const testActiveReducer = createReducer('', {
+const testActiveReducer = createReducer(null, {
   [action.technicalQA]: () => 'technical QA',
   [action.testingTheory]: () => 'testing theory',
   [action.removeRusult]: () => '',

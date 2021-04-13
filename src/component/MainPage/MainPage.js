@@ -25,37 +25,60 @@ export default function MainPage() {
       <h3 className={s.author}>Linus Torvalds</h3>
       <p className={s.authorDesc}>Linux kernel creator, hacker, 1969</p>
       <section className={s.card}>
-        <Link to={routes.TEST_VIEW} className={s.testLink}>
-          {/* <Link to={`${url}/${routes.TEST_VIEW}`} className={s.testLink}> */}
-          {<Loader /> && (
-            <MainPageContainer
-              disabled={true}
-              testActive={testActive}
-              title={
-                testActive === 'technical QA'
-                  ? 'Сontinue the test'
-                  : 'QA technical training'
-              }
-              className={s.oneContainer}
-              onClick={technicalQA}
-            />
-          )}
-        </Link>
-        <Link to={routes.TEST_VIEW} className={s.testLink}>
-          {<Loader /> && (
-            <MainPageContainer
-              disabled={false}
-              testActive={testActive}
-              title={
-                testActive === 'testing theory'
-                  ? 'Сontinue the test'
-                  : 'Testing theory'
-              }
-              className={s.twoContainer}
-              onClick={testingTheory}
-            />
-          )}
-        </Link>
+        {testActive === 'testing theory' ? (
+          <Link>
+            {<Loader /> && (
+              <MainPageContainer
+                disabled={true}
+                testActive={testActive}
+                title={'QA technical training'}
+                className={s.testLinkDisable}
+              />
+            )}
+          </Link>
+        ) : (
+          <Link to={routes.TEST_VIEW} className={s.testLink}>
+            {<Loader /> && (
+              <MainPageContainer
+                testActive={testActive}
+                title={
+                  testActive === 'technical QA'
+                    ? 'Сontinue the test'
+                    : 'QA technical training'
+                }
+                className={s.oneContainer}
+                onClick={technicalQA}
+              />
+            )}
+          </Link>
+        )}
+        {testActive === 'technical QA' ? (
+          <Link>
+            {<Loader /> && (
+              <MainPageContainer
+                disabled={true}
+                testActive={testActive}
+                title={'Testing theory'}
+                className={s.testLinkDisable}
+              />
+            )}
+          </Link>
+        ) : (
+          <Link to={routes.TEST_VIEW} className={s.testLink}>
+            {<Loader /> && (
+              <MainPageContainer
+                testActive={testActive}
+                title={
+                  testActive === 'testing theory'
+                    ? 'Сontinue the test'
+                    : 'Testing theory'
+                }
+                className={s.twoContainer}
+                onClick={testingTheory}
+              />
+            )}
+          </Link>
+        )}
       </section>
     </div>
   );

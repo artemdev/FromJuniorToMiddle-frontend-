@@ -1,6 +1,6 @@
 // import { Route } from 'react-router';
 import { useLocation, useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import MainPageView from '../MainPageView';
 // import { authSelectors } from '../../redux/auth';
 import { authOperations } from '../../redux/auth';

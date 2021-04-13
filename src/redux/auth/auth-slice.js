@@ -35,6 +35,7 @@ const authSlice = createSlice({
       state.isRefreshingCurrentUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
+      console.log('payload>>>>>', action.payload);
       state.name = action.payload.data.name;
       state.email = action.payload.data.email;
       state.token = action.payload.data.token;
