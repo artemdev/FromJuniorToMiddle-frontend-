@@ -69,6 +69,7 @@ export default function App() {
 
   return (
     <>
+
       {isRefreshingCurrentUser ? (
         <div>
           <Loader />
@@ -125,6 +126,7 @@ export default function App() {
           <Footer />
         </>
       )}
+
     </>
   );
 }

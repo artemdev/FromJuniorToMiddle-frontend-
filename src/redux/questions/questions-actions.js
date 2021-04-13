@@ -3,12 +3,16 @@ import { createAction } from '@reduxjs/toolkit';
 const technicalQA = createAction('questions/technicalQA');
 const testingTheory = createAction('questions/testingTheory');
 
-const addResult = createAction('questions/results', (testId, testValue) => ({
-  payload: {
-    questionId: testId,
-    answers: testValue,
-  },
-}));
+const addResult = createAction(
+  'questions/results',
+  (testId, testValue, question) => ({
+    payload: {
+      questionId: testId,
+      userAnswer: testValue,
+      question,
+    },
+  }),
+);
 
 const removeRusult = createAction('questions/removeRusult');
 
@@ -41,7 +45,7 @@ const actions = {
   testIndex,
   addRandomQuestions,
   removeRusult,
-  addIndex
+  addIndex,
 };
 
 export default actions;

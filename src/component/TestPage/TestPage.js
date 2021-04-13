@@ -5,12 +5,14 @@ import getTests from '../../service/serviceTests';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import questionActions from '../../redux/questions/questions-actions';
+import { getResult } from '../../redux/questions/questions-operations';
 
 export default function TestPage() {
-  // const [index, setIndex] = useState(0);
   const [value, setValue] = useState(null);
 
   const testName = useSelector(state => state.tests.testActive);
+  const url = testName === 'technical QA' ? 'technicalQA' : 'testingTheory';
+
   const userAnswers = useSelector(state => state.tests.question);
   const randomQuestions = useSelector(state => state.tests.randomQuestions);
   const index = useSelector(state => state.tests.index);
@@ -23,8 +25,6 @@ export default function TestPage() {
     }
 
     if (testName === 'technical QA') {
-      // dispatch(questionActions.removeRusult());
-
       getTests('/tests/technicalQA').then(tests =>
         dispatch(questionActions.addRandomQuestions(tests.data.tests)),
       );
@@ -54,23 +54,33 @@ export default function TestPage() {
       return;
     }
     dispatch(
-      questionActions.addResult(randomQuestions[index].questionId, value),
+      questionActions.addResult(
+        randomQuestions[index].questionId,
+        value,
+        randomQuestions[index].question,
+      ),
     );
-    // dispatch(questionActions.removeRusult());
-
     setValue(null);
     dispatch(questionActions.addIndex(1));
-    // setIndex(prevState => prevState + 1);
   };
   const moveBack = () => {
     if (index === -1) {
       return;
     }
     dispatch(questionActions.addIndex(-1));
-    // setIndex(prevState => prevState - 1);
   };
-  const finishTest = () => {
+  const finishTest = async () => {
     dispatch(questionActions.removeRusult());
+  };
+  const sendAnswers = () => {
+    dispatch(
+      questionActions.addResult(
+        randomQuestions[index].questionId,
+        value,
+        randomQuestions[index].question,
+      ),
+    );
+    getResult(userAnswers, url);
   };
 
   return (
@@ -79,9 +89,19 @@ export default function TestPage() {
         <section className={s.testsSection}>
           <div className={s.testHeaderWrapper}>
             <h2 className={s.testName}>{testName}</h2>
-            <NavLink to="/" className={s.finishBtn} onClick={finishTest}>
-              Finish test
-            </NavLink>
+            {index === 11 && value ? (
+              <NavLink
+                to="/contacts"
+                className={s.finishBtn}
+                onClick={sendAnswers}
+              >
+                Finish test
+              </NavLink>
+            ) : (
+              <NavLink to="/" className={s.finishBtn} onClick={finishTest}>
+                Finish test
+              </NavLink>
+            )}
           </div>
           <div className={s.testCard}>
             <p className={s.questionNumber}>
@@ -113,16 +133,12 @@ export default function TestPage() {
                 Previous question
               </button>
             )}
-            {!value ? (
+            {!value || index === 11 ? (
               <button className={s.nextBtn_disabled} disabled>
                 Next question
               </button>
             ) : (
-              <button
-                className={s.nextBtn_active}
-                onClick={moveNext}
-                // onClick={two}
-              >
+              <button className={s.nextBtn_active} onClick={moveNext}>
                 Next question
               </button>
             )}
