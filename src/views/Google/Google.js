@@ -1,15 +1,15 @@
-import { Route } from 'react-router';
+// import { Route } from 'react-router';
 import { useLocation, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import MainPageView from '../MainPageView';
-import { authSelectors } from '../../redux/auth';
+// import MainPageView from '../MainPageView';
+// import { authSelectors } from '../../redux/auth';
 import { authOperations } from '../../redux/auth';
 import './Google.scss';
 
 const Google = () => {
   const history = useHistory();
   const location = useLocation();
-  const isLoggedIn = useSelector(authSelectors.getLoggedIn);
+  // const isLoggedIn = useSelector(authSelectors.getLoggedIn);
   const dispatch = useDispatch();
   const accessToken = new URLSearchParams(location.search).get('accessToken');
 
@@ -24,7 +24,8 @@ const Google = () => {
   }
 
   return (
-    <Route to="/" component={() => <MainPageView authorized={isLoggedIn} />} />
+    // <Route to="/" component={() => <MainPageView authorized={isLoggedIn} />} />
+    <div></div>
   );
 };
 

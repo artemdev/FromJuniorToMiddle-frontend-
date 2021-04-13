@@ -17,6 +17,7 @@ const initialState = {
   avatar: null,
   token: null,
   isLoggedIn: false,
+  isRefreshingCurrentUser: false,
 };
 
 const authSlice = createSlice({
@@ -30,12 +31,19 @@ const authSlice = createSlice({
       state.avatar = action.payload.data.avatar;
       state.isLoggedIn = true;
     },
+    [authOperations.fetchCurrentUser.pending](state) {
+      state.isRefreshingCurrentUser = true;
+    },
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
       state.name = action.payload.data.name;
       state.email = action.payload.data.email;
       state.token = action.payload.data.token;
       state.avatar = action.payload.data.avatar;
       state.isLoggedIn = true;
+      state.isRefreshingCurrentUser = false;
+    },
+    [authOperations.fetchCurrentUser.rejected](state) {
+      state.isRefreshingCurrentUser = false;
     },
     [authOperations.logout.fulfilled](state, action) {
       state.name = null;
@@ -44,6 +52,7 @@ const authSlice = createSlice({
       state.avatar = null;
       state.isLoggedIn = false;
     },
+
     [registerSuccess]: (state, action) => {
       state.name = action.payload.data.name;
       state.email = action.payload.data.email;
