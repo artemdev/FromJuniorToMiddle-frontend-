@@ -1,0 +1,15 @@
+export const title = [
+  'Bad, very bad',
+  'Adequate',
+  'Adequate',
+  'Adequate',
+  'Adequate',
+  'Adequate',
+  'Satisfactory',
+  'Not bad',
+  'Not bad',
+  'Not bad',
+  'Not bad',
+  'Not bad',
+  'Excellent',
+];

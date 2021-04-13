@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Pie, defaults } from 'react-chartjs-2';
+
 import styles from './Diagram.module.scss';
 // import "chartjs-plugin-labels";
 
 // defaults.global.legend.position = "right";
 defaults.global.responsive = true;
 
-const Diagram = ({ correct = 11, total = 12 }) => {
+const Diagram = ({ correct, total }) => {
   const pсtCorrect = Math.round((correct * 100) / total);
   const pсtIncorrect = 100 - pсtCorrect;
 
@@ -67,6 +69,11 @@ const Diagram = ({ correct = 11, total = 12 }) => {
       </div>
     </div>
   );
+};
+
+Diagram.propTypes = {
+  correct: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
 };
 
 export default Diagram;

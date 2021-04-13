@@ -1,0 +1,15 @@
+export const subtitle = [
+  'You broke my heart :( You need to learn all materials',
+  'I’m sure you will want to do better next time.',
+  'I’m sure you will want to do better next time.',
+  'I’m sure you will want to do better next time.',
+  'I’m sure you will want to do better next time.',
+  'I’m sure you will want to do better next time.',
+  'You are on the right track. Half of the answers are correct.',
+  'But you still need to learn some materials.',
+  'But you still need to learn some materials.',
+  'But you still need to learn some materials.',
+  'But you still need to learn some materials.',
+  'But you still need to learn some materials.',
+  'Congratulations! You worked really hard for this.',
+];
