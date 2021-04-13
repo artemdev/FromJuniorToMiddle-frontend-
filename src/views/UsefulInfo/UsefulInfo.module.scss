@@ -1,8 +1,10 @@
 .materialsSection {
   background-color: #fff;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: top;
   background-size: cover;
+  height: 100%;
+  min-height: 100%;
   @media screen and (max-width: 767px) {
     background-image: url('./images/usefulInfoMobile.jpg');
   }
@@ -18,6 +20,9 @@
     screen and (min-resolution: 192dpi) and (min-width: 768px),
     screen and (min-resolution: 2dppx) and (min-width: 768px) {
     background-image: url('./images/usefulInfoTablet@2x.jpg');
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url('./images/usefulInfoDesktop.jpg');
   }
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
     screen and (min-resolution: 192dpi) and (min-width: 1280px),

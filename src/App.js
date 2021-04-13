@@ -50,7 +50,9 @@ const UsefulInfo = lazy(() =>
   import('views/UsefulInfo' /* webpackChunkName: "UsefulPageView" */),
 );
 const NotFoundView = lazy(() =>
-  import('views/NotFoundView' /* webpackChunkName: "NotFoundView" */),
+  import(
+    'views/NotFoundView/NotFoundView' /* webpackChunkName: "NotFoundView" */
+  ),
 );
 
 export default function App() {
