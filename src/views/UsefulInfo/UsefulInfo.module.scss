@@ -3,8 +3,8 @@
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  height: 100%;
-  min-height: 100%;
+  min-height: calc(100vh - 121px);
+
   @media screen and (max-width: 767px) {
     background-image: url('./images/usefulInfoMobile.jpg');
   }
@@ -34,7 +34,6 @@
 .usefullContainer {
   padding-top: 40px;
   padding-bottom: 111px;
-
   margin-left: 20px;
   @media screen and (min-width: 768px) {
     padding-top: 119px;
