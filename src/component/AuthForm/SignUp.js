@@ -1,7 +1,7 @@
 // import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { NavLink } from 'react-router-dom';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import routes from '../../routes';
 import authOperations from '../../redux/auth/auth-operations';
