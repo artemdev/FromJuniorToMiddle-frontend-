@@ -14,6 +14,7 @@
   justify-content: space-between;
   align-items: center;
   width: 156px;
+  min-width: 156px;
   @media (max-width: 768px) {
     justify-content: flex-end;
     margin-right: 19px;
