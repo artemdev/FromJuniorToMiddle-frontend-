@@ -52,6 +52,13 @@ export default function TestPage() {
   };
   const moveNext = () => {
     if (index === randomQuestions.length - 1) {
+      dispatch(
+        questionActions.addResult(
+          randomQuestions[index].questionId,
+          value,
+          randomQuestions[index].question,
+        ),
+      );
       return;
     }
     dispatch(
@@ -75,13 +82,15 @@ export default function TestPage() {
   };
 
   const sendAnswers = () => {
-    dispatch(
-      questionActions.addResult(
-        randomQuestions[index].questionId,
-        value,
-        randomQuestions[index].question,
-      ),
-    );
+
+    // dispatch(
+    //   questionActions.addResult(
+    //     randomQuestions[index].questionId,
+    //     value,
+    //     randomQuestions[index].question,
+    //   ),
+    // );
+
     getResult(url, userAnswers);
   };
 
@@ -93,7 +102,9 @@ export default function TestPage() {
             <h2 className={s.testName}>{testName}</h2>
             {index === 11 && value ? (
               <button
-                // to="/contacts"
+
+                to="/contacts"
+
                 className={s.finishBtn}
                 onClick={sendAnswers}
               >
@@ -135,7 +146,7 @@ export default function TestPage() {
                 Previous question
               </button>
             )}
-            {!value || index === 11 ? (
+            {!value ? (
               <button className={s.nextBtn_disabled} disabled>
                 Next question
               </button>
