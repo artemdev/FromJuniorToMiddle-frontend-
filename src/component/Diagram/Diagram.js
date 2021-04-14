@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { Pie, defaults } from 'react-chartjs-2';
 
 import styles from './Diagram.module.scss';
-// import "chartjs-plugin-labels";
 
-// defaults.global.legend.position = "right";
 defaults.global.responsive = true;
 
 const Diagram = ({ correct, total }) => {
@@ -19,36 +17,47 @@ const Diagram = ({ correct, total }) => {
         data: [pсtCorrect, pсtIncorrect],
         backgroundColor: ['rgba(255,107,1,1)', 'rgba(215,215,215,1)'],
         borderWidth: 0,
-        // hoverOffset: 4,
       },
     ],
   };
 
+  const changeLegendOpts = () => {
+    if (document.documentElement.clientWidth < 768) {
+      return {
+        position: 'bottom',
+        align: 'center',
+        display: true,
+        labels: {
+          fontFamily: 'Montserrat, sans-serif',
+          fontSize: 10,
+          fontWeight: 500,
+          fontColor: '#000000',
+          boxWidth: 10,
+        },
+      };
+    } else {
+      return {
+        position: 'right',
+        align: 'center',
+        display: true,
+        labels: {
+          fontFamily: 'Montserrat, sans-serif',
+          fontSize: 16,
+          fontColor: '#000000',
+          boxWidth: 16,
+        },
+      };
+    }
+  };
   const options = {
-    // plugins: {
-    //   labels: {
-    //     render: "label",
-    //     position: "outside",
-    //   },
-    // },
     maintainAspectRatio: false,
-    legend: {
-      position: 'right',
-      align: 'center',
-      display: true,
-      labels: {
-        fontFamily: 'Montserrat, sans-serif',
-        fontSize: 16,
-        fontColor: '#000000',
-        boxWidth: 16,
-      },
-    },
+    legend: changeLegendOpts(),
     rotation: 0,
     tooltips: {
       callbacks: {
         label: function (tooltipItem, data) {
-          let label = data.labels[tooltipItem.index];
-          return label;
+          let label = data.labels[tooltipItem.index] || '';
+          return `${label}`;
         },
       },
     },
@@ -57,7 +66,7 @@ const Diagram = ({ correct, total }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.diagram}>
-        <Pie data={data} width={285} height={285} options={options} />
+        <Pie data={data} options={options} />
       </div>
       <div className={styles.result}>
         <p className={styles.text}>

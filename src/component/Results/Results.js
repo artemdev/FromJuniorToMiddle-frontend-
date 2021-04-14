@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import styles from './Results.module.scss';
 import Diagram from '../Diagram';
 import {
-  getResult,
+  // getResult,
   deleteResult,
 } from '../../redux/questions/questions-operations';
+import getResults from '../../service/serviceTests';
 import routes from '../../routes';
 import { image } from './data/image';
 import { title } from './data/title';
@@ -15,12 +16,10 @@ import { subtitle } from './data/subtitle';
 
 export default function Results() {
   const [result, setResult] = useState(null);
-  const tests = useSelector(state => state.tests.question);
-  // const testActive = useSelector(state => state.tests.testActive);
+  const testActive = useSelector(state => state.tests.testActive);
 
   // STATIC DATA(added for testing)
-  let testActive = 'technical QA';
-  let correct = 0;
+  let correct = 6;
   let total = 12;
 
   const dispatch = useDispatch();
@@ -30,14 +29,16 @@ export default function Results() {
   useEffect(() => {
     async function getUserResult() {
       try {
-        const { data } = await getResult(tests, url);
+        const { data } = await getResults(url);
+        console.log('url:', url);
+        console.log(data);
         setResult(data);
       } catch (error) {
         console.error(error);
       }
     }
     getUserResult();
-  }, [tests, url]);
+  }, [url]);
 
   const handleTryAgain = () => {
     dispatch(deleteResult());

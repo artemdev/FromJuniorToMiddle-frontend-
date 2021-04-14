@@ -4,23 +4,23 @@
     margin: 0px auto 29px;
   }
 
-  // @media (min-width: 768px) {
-  //   margin: 0px 200px;
-  //   max-width: 400px;
-  // }
-
-  // @media (min-width: 1200px) {
-  //   margin: 0px 400px;
-  //   max-width: 400px;
-  // }
+  @media (min-width: 768px) {
+    margin-bottom: 29px;
+  }
 }
 
 .diagram {
-  max-width: 600px;
-  margin: 0px auto 20px;
+  min-width: 156px;
+  height: 210px;
+  margin-bottom: 20px;
   @media (min-width: 768px) {
-    margin: 0px auto 30px;
-    max-width: 400px;
+    min-width: 450px;
+    height: 285px;
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 1200px) {
+    min-width: 500px;
   }
 }
 
