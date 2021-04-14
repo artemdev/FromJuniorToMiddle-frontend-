@@ -26,7 +26,7 @@ export default function MainPage() {
       <p className={s.authorDesc}>Linux kernel creator, hacker, 1969</p>
       <section className={s.card}>
         {testActive === 'testing theory' ? (
-          <Link>
+          <>
             {<Loader /> && (
               <MainPageContainer
                 disabled={true}
@@ -35,7 +35,7 @@ export default function MainPage() {
                 className={s.testLinkDisable}
               />
             )}
-          </Link>
+          </>
         ) : (
           <Link to={routes.TEST_VIEW} className={s.testLink}>
             {<Loader /> && (
@@ -53,7 +53,7 @@ export default function MainPage() {
           </Link>
         )}
         {testActive === 'technical QA' ? (
-          <Link>
+          <>
             {<Loader /> && (
               <MainPageContainer
                 disabled={true}
@@ -62,7 +62,7 @@ export default function MainPage() {
                 className={s.testLinkDisable}
               />
             )}
-          </Link>
+          </>
         ) : (
           <Link to={routes.TEST_VIEW} className={s.testLink}>
             {<Loader /> && (

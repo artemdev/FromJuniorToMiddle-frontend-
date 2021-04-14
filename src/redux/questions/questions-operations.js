@@ -4,10 +4,8 @@ import action from './questions-actions';
 
 axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
 
-
 export const getResult = (tests, url) => dispatch => {
   const result = tests;
-
 
   dispatch(action.getResultRequest());
 
