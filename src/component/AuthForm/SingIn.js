@@ -42,7 +42,7 @@ export default function AuthForm() {
             placeholder="E-mail"
             className={styles.input}
           />
-          {errors.email && touched.email ? <div>{errors.email}</div> : null}
+          {errors.email && touched.email ? <div className={styles.errors}>{errors.email}</div> : null}
           <Field
             type="password"
             name="password"
@@ -50,7 +50,7 @@ export default function AuthForm() {
             className={styles.input}
           />
           {errors.password && touched.password ? (
-            <div>{errors.password}</div>
+            <div className={styles.errors}>{errors.password}</div>
           ) : null}
 
           <div className={styles.buttonWrapper}>
