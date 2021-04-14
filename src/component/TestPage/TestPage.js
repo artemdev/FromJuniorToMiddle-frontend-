@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import s from './TestPage.module.scss';
 import { Radio } from 'antd';
-import getTests from '../../service/serviceTests';
+import { getTests, getResult } from '../../service/serviceTests';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import questionActions from '../../redux/questions/questions-actions';
-import { getResult } from '../../redux/questions/questions-operations';
+
+// import { getResult } from '../../redux/questions/questions-operations';
 
 export default function TestPage() {
   const [value, setValue] = useState(null);
@@ -72,6 +73,7 @@ export default function TestPage() {
   const finishTest = async () => {
     dispatch(questionActions.removeRusult());
   };
+
   const sendAnswers = () => {
     dispatch(
       questionActions.addResult(
@@ -80,7 +82,7 @@ export default function TestPage() {
         randomQuestions[index].question,
       ),
     );
-    getResult(userAnswers, url);
+    getResult(url, userAnswers);
   };
 
   return (
@@ -90,17 +92,17 @@ export default function TestPage() {
           <div className={s.testHeaderWrapper}>
             <h2 className={s.testName}>{testName}</h2>
             {index === 11 && value ? (
-              <NavLink
-                to="/contacts"
+              <button
+                // to="/contacts"
                 className={s.finishBtn}
                 onClick={sendAnswers}
               >
                 Finish test
-              </NavLink>
+              </button>
             ) : (
-              <NavLink to="/" className={s.finishBtn} onClick={finishTest}>
+              <button to="/" className={s.finishBtn} onClick={finishTest}>
                 Finish test
-              </NavLink>
+              </button>
             )}
           </div>
           <div className={s.testCard}>
