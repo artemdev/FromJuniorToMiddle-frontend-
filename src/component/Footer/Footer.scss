@@ -4,6 +4,11 @@
   background-color: #02172a;
   text-align: center;
   width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 51px;
+  overflow: hidden;
 
   @media screen and (max-width: 767px) {
     max-width: 767px;

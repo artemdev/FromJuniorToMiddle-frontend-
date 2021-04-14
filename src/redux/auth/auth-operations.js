@@ -1,6 +1,20 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as authActions from './auth-actions';
+import { error, Stack } from '@pnotify/core';
+import { defaults } from '@pnotify/core';
+import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/PNotify.css';
+
+defaults.width = '400px';
+const myStack = new Stack({
+  modal: false,
+  dir1: 'down',
+  firstpos1: 0,
+  spacing1: 0,
+  push: 'top',
+  maxOpen: Infinity,
+});
 
 axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
 
@@ -23,8 +37,16 @@ const register = credentials => async dispatch => {
     const responce = await axios.post('/auth/register', credentials);
 
     dispatch(authActions.registerSuccess(responce.data));
-  } catch (error) {
-    dispatch(authActions.registerError(error.message));
+  } catch (e) {
+    dispatch(authActions.registerError(e.message));
+
+    if (e.response.data.code === 409) {
+      error({
+        text: 'User already exists',
+        type: 'error',
+        stack: myStack,
+      });
+    }
   }
 };
 
@@ -37,17 +59,38 @@ const logIn = credentials => async dispatch => {
     token.set(responce.data.token);
 
     dispatch(authActions.loginSuccess(responce.data));
-  } catch (error) {
-    dispatch(authActions.loginError(error.message));
+  } catch (e) {
+    dispatch(authActions.loginError(e.message));
+
+    if (e.response.data.code === 401) {
+      error({
+        text: 'Email or password is wrong.',
+        type: 'error',
+        stack: myStack,
+      });
+    }
   }
 };
 
-const logout = createAsyncThunk('auth/logout', async () => {
+const logOut = createAsyncThunk('auth/logout', async token => {
   try {
-    await axios.post('/auth/logout');
+    // await axios.post('/auth/logout');
+    await axios({
+      url: '/auth/logout',
+      method: 'post',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     token.unset();
-  } catch (error) {
-    console.log(error.message);
+  } catch (e) {
+    if (e.response.data.code === 204) {
+      error({
+        text: 'Check connection!',
+        type: 'error',
+        stack: myStack,
+      });
+    }
   }
 });
 
@@ -62,6 +105,7 @@ const requestToMongo = createAsyncThunk(
           Authorization: `Bearer ${accessToken}`,
         },
       });
+
       return data;
     } catch (error) {
       console.log(error);
@@ -74,6 +118,7 @@ const fetchCurrentUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const localstoragedToken = state.user.token;
+
     if (localstoragedToken === null) {
       return thunkAPI.rejectWithValue();
     }
@@ -82,6 +127,7 @@ const fetchCurrentUser = createAsyncThunk(
 
     try {
       const { data } = await axios.get('/auth/user');
+
       return data;
     } catch (error) {
       console.log(error);
@@ -92,7 +138,7 @@ const fetchCurrentUser = createAsyncThunk(
 const operations = {
   register,
   logIn,
-  logout,
+  logOut,
   requestToMongo,
   fetchCurrentUser,
 };

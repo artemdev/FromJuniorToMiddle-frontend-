@@ -1,0 +1,13 @@
+.wron-view-wrapper {
+  margin: auto;
+  padding: 10px 0;
+
+  &__text {
+    font-size: 12px;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}

@@ -55,14 +55,15 @@ const NotFoundView = lazy(() =>
     'views/NotFoundView/NotFoundView' /* webpackChunkName: "NotFoundView" */
   ),
 );
+const WrongView = lazy(() =>
+  import('views/WrongView' /* webpackChunkName: "WrongView" */),
+);
 
 export default function App() {
   const isRefreshingCurrentUser = useSelector(
     authSelectors.isRefreshingCurrentUser,
   );
   const dispatch = useDispatch();
-
-  console.log('isRefreshingCurrentUser', isRefreshingCurrentUser);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -111,6 +112,9 @@ export default function App() {
                 <PrivateRoute path={routes.USEFUL_INFO_VIEW}>
                   <UsefulInfo literature={literature} resources={resources} />
                 </PrivateRoute>
+                <PublicRoute path={routes.WRONG}>
+                  <WrongView />
+                </PublicRoute>
                 <PublicRoute>
                   <NotFoundView />
                 </PublicRoute>
@@ -128,8 +132,8 @@ export default function App() {
               draggable
               pauseOnHover
             />
+            <Footer />
           </Container>
-          <Footer />
         </>
       )}
     </>

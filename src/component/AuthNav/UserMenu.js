@@ -1,9 +1,10 @@
-import icon from '../../icon/sign-out.svg';
-import styles from './styles.module.scss';
-import React, { useEffect, useState } from 'react';
-import operations from '../../redux/auth/auth-operations';
 import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { ReactComponent as SignOutIcon } from '../../icon/sign-out.svg';
+import styles from './styles.module.scss';
 import { authSelectors } from '../../redux/auth';
+import { authOperations } from '../../redux/auth';
+import Button from '../Button';
 
 function AuthHav() {
   const [name, setName] = useState();
@@ -11,6 +12,7 @@ function AuthHav() {
   const dispatch = useDispatch();
   const userAvatar = useSelector(authSelectors.getUserAvatar);
   const userName = useSelector(authSelectors.getUsername);
+  const token = useSelector(authSelectors.getToken);
 
   useEffect(() => {
     try {
@@ -22,29 +24,29 @@ function AuthHav() {
   }, [userName, userAvatar]);
 
   const handleLogOut = () => {
-    dispatch(operations.logout());
+    dispatch(authOperations.logOut(token));
   };
 
   return (
     <div className={styles.authNav}>
-      <img
-        className={styles.avatar}
-        src={avatarUrl}
-        alt="User Avatar"
-        width="30"
-        height="30"
-      />
-      <span className={styles.name}>{name}</span>
-
-      <div onClick={handleLogOut}>
-        <img
-          className={styles.signOutIcon}
-          src={icon}
-          alt="sign-out"
-          width="16"
-          height="16"
-        />
+      <div className={styles.authAvatarNameContainer}>
+        <div className={styles.avatarWarpper}>
+          <img
+            className={styles.avatar}
+            src={avatarUrl}
+            alt="avatar"
+            width="30"
+            height="30"
+          />
+        </div>
+        <span className={styles.name}>{name}</span>
       </div>
+
+      <Button
+        children={<SignOutIcon />}
+        className={styles.signOutButton}
+        onClick={handleLogOut}
+      />
     </div>
   );
 }

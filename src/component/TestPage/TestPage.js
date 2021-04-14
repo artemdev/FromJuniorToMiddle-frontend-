@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import s from './TestPage.module.scss';
 import { Radio } from 'antd';
-import getTests from '../../service/serviceTests';
+import { getTests, getResult } from '../../service/serviceTests';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import questionActions from '../../redux/questions/questions-actions';
-import { getResult } from '../../redux/questions/questions-operations';
+
+// import { getResult } from '../../redux/questions/questions-operations';
 
 export default function TestPage() {
   const [value, setValue] = useState(null);
@@ -51,6 +52,13 @@ export default function TestPage() {
   };
   const moveNext = () => {
     if (index === randomQuestions.length - 1) {
+      dispatch(
+        questionActions.addResult(
+          randomQuestions[index].questionId,
+          value,
+          randomQuestions[index].question,
+        ),
+      );
       return;
     }
     dispatch(
@@ -72,15 +80,18 @@ export default function TestPage() {
   const finishTest = async () => {
     dispatch(questionActions.removeRusult());
   };
+
   const sendAnswers = () => {
-    dispatch(
-      questionActions.addResult(
-        randomQuestions[index].questionId,
-        value,
-        randomQuestions[index].question,
-      ),
-    );
-    getResult(userAnswers, url);
+
+    // dispatch(
+    //   questionActions.addResult(
+    //     randomQuestions[index].questionId,
+    //     value,
+    //     randomQuestions[index].question,
+    //   ),
+    // );
+
+    getResult(url, userAnswers);
   };
 
   return (
@@ -90,17 +101,19 @@ export default function TestPage() {
           <div className={s.testHeaderWrapper}>
             <h2 className={s.testName}>{testName}</h2>
             {index === 11 && value ? (
-              <NavLink
+              <button
+
                 to="/contacts"
+
                 className={s.finishBtn}
                 onClick={sendAnswers}
               >
                 Finish test
-              </NavLink>
+              </button>
             ) : (
-              <NavLink to="/" className={s.finishBtn} onClick={finishTest}>
+              <button to="/" className={s.finishBtn} onClick={finishTest}>
                 Finish test
-              </NavLink>
+              </button>
             )}
           </div>
           <div className={s.testCard}>
@@ -133,7 +146,7 @@ export default function TestPage() {
                 Previous question
               </button>
             )}
-            {!value || index === 11 ? (
+            {!value ? (
               <button className={s.nextBtn_disabled} disabled>
                 Next question
               </button>

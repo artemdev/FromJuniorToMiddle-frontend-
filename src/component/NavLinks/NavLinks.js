@@ -19,8 +19,8 @@ const NavLinks = () => {
 
   return (
     <ul className="list nav-list">
-      <li className="nav-list__item" onClick={onToggleModal}>
-        {isLoggedIn && (
+      {isLoggedIn && (
+        <li className="nav-list__item" onClick={onToggleModal}>
           <NavLink
             exact
             to={routes.MAIN_VIEW}
@@ -29,10 +29,10 @@ const NavLinks = () => {
           >
             Home
           </NavLink>
-        )}
-      </li>
-      <li className="nav-list__item" onClick={onToggleModal}>
-        {isLoggedIn && (
+        </li>
+      )}
+      {isLoggedIn && (
+        <li className="nav-list__item" onClick={onToggleModal}>
           <NavLink
             to={routes.USEFUL_INFO_VIEW}
             className="nav-list__item-link"
@@ -40,8 +40,8 @@ const NavLinks = () => {
           >
             Materials
           </NavLink>
-        )}
-      </li>
+        </li>
+      )}
       <li className="nav-list__item" onClick={onToggleModal}>
         <NavLink
           to={routes.CONTACTS_VIEW}

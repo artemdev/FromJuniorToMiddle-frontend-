@@ -1,13 +1,12 @@
 .site-header {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1100;
   background-color: rgb(245, 246, 251);
   border-bottom: 1px solid rgb(226, 227, 229);
-
-  @media screen and (min-width: 768px) {
-    padding: 20px;
-  }
 
   &__button {
     width: 56px;
@@ -22,8 +21,19 @@
   }
 }
 
-.exit-wrapper {
-  margin: 0 auto;
+.sign-out-btn-wrapper {
   padding-top: 26px;
-  width: 16px;
+}
+
+.modal-sign-out-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 18px;
+  background-color: rgb(245, 246, 251);
+  border: none;
+  border-left: 1px solid rgb(226, 227, 229);
+  outline: none;
+  cursor: pointer;
 }
