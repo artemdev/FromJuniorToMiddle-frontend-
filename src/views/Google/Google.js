@@ -1,15 +1,15 @@
-// import { Route } from 'react-router';
-import { useLocation, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-// import MainPageView from '../MainPageView';
-// import { authSelectors } from '../../redux/auth';
+import { useLocation, useHistory, Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import MainPageView from '../MainPageView';
+import { authSelectors } from '../../redux/auth';
 import { authOperations } from '../../redux/auth';
+import Loader from '../../component/Loader';
 import './Google.scss';
 
 const Google = () => {
-  const history = useHistory();
   const location = useLocation();
-  // const isLoggedIn = useSelector(authSelectors.getLoggedIn);
+  const history = useHistory();
+  const isLoggedIn = useSelector(authSelectors.getLoggedIn);
   const dispatch = useDispatch();
   const accessToken = new URLSearchParams(location.search).get('accessToken');
 
@@ -19,13 +19,14 @@ const Google = () => {
 
   requestToMongo();
 
-  if (accessToken) {
-    history.push('/');
+  if (!accessToken) {
+    history.push('/wrong');
   }
 
-  return (
-    // <Route to="/" component={() => <MainPageView authorized={isLoggedIn} />} />
-    <div></div>
+  return !isLoggedIn ? (
+    <Loader />
+  ) : (
+    <Route to="/" component={() => <MainPageView authorized={isLoggedIn} />} />
   );
 };
 

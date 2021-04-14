@@ -11,7 +11,3 @@ export const loginError = createAction('auth/loginError');
 export const logOutRequest = createAction('auth/logOutRequest');
 export const logOutSuccess = createAction('auth/logOutSuccess');
 export const logOutError = createAction('auth/logOutError');
-
-// export const googleAuthRequest = createAction('auth/googleAuthRequest');
-// export const googleAuthSuccess = createAction('auth/googleAuthSuccess');
-// export const googleAuthError = createAction('auth/googleAuthError');

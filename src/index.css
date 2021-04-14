@@ -13,18 +13,12 @@ html,
 html {
   box-sizing: border-box;
   position: relative;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 main {
   margin: 0 0 51px;
-}
-
-.footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 51px;
-  overflow: hidden;
 }
 
 * {
