@@ -95,7 +95,6 @@
 }
 
 .buttonSignIn {
-  background-color: #ff6b09;
   border: none;
   cursor: pointer;
   font-family: 'Montserrat';
@@ -108,6 +107,9 @@
   text-transform: uppercase;
   color: #ffffff;
   padding: 25px 28px;
+}
+.active {
+  background-color: #ff6b09;
 }
 
 .buttonSignIn:hover {

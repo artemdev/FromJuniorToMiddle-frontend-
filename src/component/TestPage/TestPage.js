@@ -101,9 +101,11 @@ export default function TestPage() {
           <div className={s.testHeaderWrapper}>
             <h2 className={s.testName}>{testName}</h2>
             {index === 11 && value ? (
-              <button
 
-                to="/contacts"
+              <NavLink
+
+                exact
+                to="/result"
 
                 className={s.finishBtn}
                 onClick={sendAnswers}
