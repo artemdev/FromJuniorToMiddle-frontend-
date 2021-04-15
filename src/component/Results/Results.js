@@ -31,6 +31,7 @@ export default function Results() {
     async function getUserResult() {
       try {
         const { data } = await getResult(tests, url);
+        console.log('DATA>>>>>>>>>', data);
         setResult(data);
       } catch (error) {
         console.error(error);
