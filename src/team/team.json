@@ -1,16 +1,16 @@
-
-[  {
+[  
+  {
     "name": "Ivan Polovinka",
     "position": "Team Lead",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
+    "description": "Iteration is human, recursion is divine.",
     "images": "https://files.fm/thumb_show.php?i=ygm9kavg5",
-    "git": "/",
-    "linkedin": "/"
+    "git": "https://github.com/transformator98",
+    "linkedin": "https://www.linkedin.com/in/ivanpolovynka/"
   },
      {
     "name": "Artem Zymovets",
     "position": "Scrum Master",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
+    "description": "We call it beta. Cause it’s betta than nothing”",
     "images": "https://files.fm/thumb_show.php?i=hhjhpe4pq",
     "git": "https://github.com/artemzimovets",
     "linkedin": "https://ua.linkedin.com/in/artem-zymovets"
@@ -36,7 +36,7 @@
   {
     "name": "Valentyna Chudik",
     "position": "Fullstack Web-Developer",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
+    "description": "W̶I̶S̶H DO",
     "images": "https://files.fm/thumb_show.php?i=3wpj7qnxw",
     "git": "https://github.com/Valentyna-Chudik",
     "linkedin": "https://www.linkedin.com/in/valentyna-chudik-6147341b5/"
@@ -44,7 +44,7 @@
   {
     "name": "Anastasiia Kolieva",
     "position": "Fullstack Web-Developer",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
+    "description": "A person is closest to perfection in those moments when he is writing a resume.",
     "images": "https://files.fm/thumb_show.php?i=9k9p3s78f",
     "git": "https://github.com/anastasiia-kolieva",
     "linkedin": "https://www.linkedin.com/in/anastasiia-koleva"
@@ -52,37 +52,35 @@
   {
     "name": "Vladyslav Bahrii",
     "position": "Fullstack Web-Developer",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
+    "description": "If something works at once, turn it off and look for a mistake!",
     "images": "https://files.fm/thumb_show.php?i=7x7aadw78",
-    "git": "/",
-    "linkedin": "/"
+    "git": "https://github.com/VVGhost5",
+    "linkedin": "http://linkedin.com/in/vlad-bahrii-8364221a6"
   },
 
   {
     "name": "Ilya Lysenko",
     "position": "Fullstack Web-Developer",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
-    "images": "https://files.fm/thumb_show.php?i=p9e39wse8",
-    "git": "/",
-    "linkedin": "/"
+    "description": "Can't stop, won't stop))",
+    "images": "https://files.fm/thumb_show.php?i=u6we72s8s",
+    "git": "https://github.com/ilya230995?tab=repositories",
+    "linkedin": "https://www.linkedin.com/in/ilya-lysenko-b665681a6/"
   },
   {
     "name": "Serhii Malyshko",
     "position": "Fullstack Web-Developer",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
-    "images": "https://files.fm/thumb_show.php?i=p9e39wse8",
+    "description": "Work hard, play hard.",
+    "images": "https://files.fm/thumb_show.php?i=jjef6ay23",
     "git": "https://github.com/malyshkoserhii",
     "linkedin": "https://www.linkedin.com/in/serhii-malyshko-5a7958199/"
   },
   {
     "name": "Andrii Lavrenchuk",
     "position": "Fullstack Web-Developer",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
+    "description": "Always learning something new.",
     "images": "https://files.fm/thumb_show.php?i=uyke4mqnr",
     "git": "https://github.com/andrii-lavrenchuk",
     "linkedin": "https://www.linkedin.com/in/andrii-lavrenchuk-463a52157"
   }
-
- 
 ]
 
