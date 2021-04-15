@@ -31,8 +31,8 @@ export default function Results() {
   useEffect(() => {
     async function getUserResult() {
       try {
-        const { data } = await getResults(url);
-        setResult(data);
+        const dataToFind = await getResults(url);
+        setResult(dataToFind);
       } catch (error) {
         console.error(error);
       }
