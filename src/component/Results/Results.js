@@ -8,7 +8,9 @@ import {
   // getResult,
   deleteResult,
 } from '../../redux/questions/questions-operations';
-import getResults from '../../service/serviceTests';
+
+import getResults from '../../service/serviceResults';
+
 import routes from '../../routes';
 import { image } from './data/image';
 import { title } from './data/title';

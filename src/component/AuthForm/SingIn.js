@@ -34,7 +34,7 @@ export default function AuthForm() {
             </a>
           </div>
           <h2 className={styles.text}>
-            Or login to our app using e-mail and password
+            <strong>Login</strong> with email and password
           </h2>
           <Field
             type="email"
@@ -42,7 +42,11 @@ export default function AuthForm() {
             placeholder="E-mail"
             className={styles.input}
           />
-          {errors.email && touched.email ? <div className={styles.errors}>{errors.email}</div> : null}
+
+          {errors.email && touched.email ? (
+            <div className={styles.errors}>{errors.email}</div>
+          ) : null}
+
           <Field
             type="password"
             name="password"
@@ -54,9 +58,6 @@ export default function AuthForm() {
           ) : null}
 
           <div className={styles.buttonWrapper}>
-            <button type="submit" className={styles.buttonSignIn}>
-              Sign in
-            </button>
             <NavLink
               exact
               to={routes.AUTH_SIGNUP}
@@ -64,6 +65,12 @@ export default function AuthForm() {
             >
               Sign up
             </NavLink>
+            <button
+              type="submit"
+              className={styles.buttonSignIn + ' ' + styles.active}
+            >
+              Login
+            </button>
           </div>
         </Form>
       )}

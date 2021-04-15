@@ -103,6 +103,8 @@ export default function TestPage() {
             {index === 11 && value ? (
 
               <NavLink
+
+                exact
                 to="/result"
 
                 className={s.finishBtn}
