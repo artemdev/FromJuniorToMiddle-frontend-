@@ -2,8 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 86px;
-  padding: 20px 10px 20px 0;
+  padding: 20px 0;
+
+  @media (min-width: 768px) {
+    min-width: 86px;
+    padding: 20px 10px 20px 0;
+  }
 }
 
 .signOutButton {
@@ -13,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 56px;
+    width: 58px;
     background-color: rgb(245, 246, 251);
     border: none;
     border-left: 1px solid rgb(226, 227, 229);
@@ -26,10 +30,8 @@
   display: flex;
   justify-content: space-between;
 
-
-  @media (max-width: 767px) {
+  @media (min-width: 768px) {
     width: 48px;
-
   }
 
   @media (min-width: 768px) {
@@ -37,9 +39,13 @@
   }
 }
 
-.avatarWarpper {
-  margin-right: 12px;
+.avatarWarapper {
   width: 30px;
+  margin-right: 19px;
+
+  @media (min-width: 768px) {
+    margin-right: 12px;
+  }
 }
 
 .avatar {

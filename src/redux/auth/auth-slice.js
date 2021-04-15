@@ -3,7 +3,6 @@ import authOperations from './auth-operations';
 import {
   registerSuccess,
   loginSuccess,
-  logOutSuccess,
   registerError,
   loginError,
   logOutError,
@@ -41,7 +40,12 @@ const authSlice = createSlice({
       state.isRefreshingCurrentUser = false;
     },
     [authOperations.fetchCurrentUser.rejected](state) {
+      state.name = null;
+      state.email = null;
       state.token = null;
+      state.avatar = null;
+      state.token = null;
+      state.isLoggedIn = false;
       state.isRefreshingCurrentUser = false;
     },
     [authOperations.logOut.fulfilled](state) {
@@ -50,13 +54,14 @@ const authSlice = createSlice({
       state.token = null;
       state.avatar = null;
       state.isLoggedIn = false;
+      state.isRefreshingCurrentUser = false;
     },
-
     [registerSuccess]: (state, action) => {
       state.name = action.payload.data.name;
       state.email = action.payload.data.email;
       state.token = action.payload.data.token;
       state.isLoggedIn = true;
+      state.isRefreshingCurrentUser = false;
     },
     [loginSuccess]: (state, action) => {
       state.name = action.payload.data.name;
@@ -64,13 +69,7 @@ const authSlice = createSlice({
       state.token = action.payload.data.token;
       state.avatar = action.payload.data.avatar;
       state.isLoggedIn = true;
-    },
-    [logOutSuccess]: (state, _) => {
-      state.name = null;
-      state.email = null;
-      state.token = null;
-      state.avatar = null;
-      state.isLoggedIn = false;
+      state.isRefreshingCurrentUser = false;
     },
     //пока что ничего не делаем со стейтом при ошибке
     [registerError]: (_, action) => action.payload,

@@ -18,9 +18,6 @@ const myStack = new Stack({
 
 axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
 
-// http://localhost:3030 не видаляти, необхідно для проведення тестів
-// axios.defaults.baseURL = 'http://localhost:3030';
-
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -74,7 +71,6 @@ const logIn = credentials => async dispatch => {
 
 const logOut = createAsyncThunk('auth/logout', async token => {
   try {
-    // await axios.post('/auth/logout');
     await axios({
       url: '/auth/logout',
       method: 'post',
@@ -82,7 +78,6 @@ const logOut = createAsyncThunk('auth/logout', async token => {
         Authorization: `Bearer ${token}`,
       },
     });
-    token.unset();
   } catch (e) {
     if (e.response.data.code === 204) {
       error({
@@ -105,14 +100,13 @@ const requestToMongo = createAsyncThunk(
           Authorization: `Bearer ${accessToken}`,
         },
       });
-
       return data;
     } catch (error) {
       console.log(error);
     }
   },
 );
-
+// TODO
 const fetchCurrentUser = createAsyncThunk(
   'auth/fetchCurrentUser',
   async (_, thunkAPI) => {
@@ -130,10 +124,11 @@ const fetchCurrentUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      console.log(error);
+      return thunkAPI.rejectWithValue();
     }
   },
 );
+//TODO
 
 const operations = {
   register,

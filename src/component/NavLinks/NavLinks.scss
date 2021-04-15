@@ -5,17 +5,18 @@
   @media screen and (min-width: 768px) {
     width: 319px;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
+    margin-right: 30px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 386px;
+    margin-right: 68px;
   }
 
   &__item {
     width: 100%;
     padding: 20px 0;
-    margin: 0 auto;
     border-bottom: 1px solid rgb(226, 227, 229);
 
     @media screen and (min-width: 768px) {

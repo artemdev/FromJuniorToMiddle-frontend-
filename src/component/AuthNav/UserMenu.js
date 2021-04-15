@@ -30,7 +30,7 @@ function AuthHav() {
   return (
     <div className={styles.authNav}>
       <div className={styles.authAvatarNameContainer}>
-        <div className={styles.avatarWarpper}>
+        <div className={styles.avatarWarapper}>
           <img
             className={styles.avatar}
             src={avatarUrl}
