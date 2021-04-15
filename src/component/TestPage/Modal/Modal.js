@@ -5,14 +5,14 @@ import { NavLink } from 'react-router-dom';
 
 export default function Modal({ active, setActive }) {
   const testName = useSelector(state => state.tests.testActive);
-  const url = testName === 'technical QA' ? 'technicalQA' : 'testingTheory';
+  const url = testName === 'technical QA' ? 'technical' : 'theory';
   const userAnswers = useSelector(state => state.tests.question);
 
   const sendAnswers = () => {
-    if (testName === 'technical QA') {
-      getResult('technicalQA', userAnswers);
+    if (testName === 'technical') {
+      getResult('technical', userAnswers);
     } else {
-      getResult('testingTheory', userAnswers);
+      getResult('theory', userAnswers);
     }
   };
 

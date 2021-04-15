@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import s from './TestPage.module.scss';
 import { Radio } from 'antd';
-import { getTests, getResult } from '../../service/serviceTests';
+import { getTests } from '../../service/serviceTests';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import questionActions from '../../redux/questions/questions-actions';
@@ -14,7 +14,7 @@ export default function TestPage() {
   const [modalActive, setModalActive] = useState(false);
 
   const testName = useSelector(state => state.tests.testActive);
-  const url = testName === 'technical QA' ? 'technicalQA' : 'testingTheory';
+  const url = testName === 'technical QA' ? 'technical' : 'theory';
 
   const userAnswers = useSelector(state => state.tests.question);
   const randomQuestions = useSelector(state => state.tests.randomQuestions);
@@ -27,12 +27,12 @@ export default function TestPage() {
       return;
     }
 
-    if (testName === 'technical QA') {
-      getTests('/tests/technicalQA').then(tests =>
+    if (testName === 'technical') {
+      getTests('/tests/technical/random').then(tests =>
         dispatch(questionActions.addRandomQuestions(tests.data.tests)),
       );
     }
-    getTests('/tests/testingTheory').then(tests =>
+    getTests('/tests/theory/random').then(tests =>
       dispatch(questionActions.addRandomQuestions(tests.data.tests)),
     );
   }, [randomQuestions, testName]);
@@ -92,7 +92,6 @@ export default function TestPage() {
         randomQuestions[index].question,
       ),
     );
-
   };
 
   return (
@@ -106,7 +105,6 @@ export default function TestPage() {
             <NavLink to="/" className={s.finishBtn} onClick={finishTest}>
               Finish test
             </NavLink>
-
           </div>
           <div className={s.testCard}>
             <p className={s.questionNumber}>

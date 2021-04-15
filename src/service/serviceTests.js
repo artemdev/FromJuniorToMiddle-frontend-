@@ -7,6 +7,7 @@ export async function getTests(path) {
   try {
     const { data } = await axios.get(path);
     return data;
+    // console.log(path);
   } catch (error) {
     console.log('error', { error });
     return [];
@@ -15,7 +16,7 @@ export async function getTests(path) {
 
 export async function getResult(path, tests) {
   try {
-    const response = await axios.post(`/tests/${path}/result`, tests);
+    const response = await axios.post(`/tests/${path}`, tests);
     return response.data;
   } catch (error) {
     console.log('error', { error });

@@ -8,6 +8,7 @@ import {
   // getResult,
   deleteResult,
 } from '../../redux/questions/questions-operations';
+import questionActions from '../../redux/questions/questions-actions';
 
 import getResults from '../../service/serviceResults';
 
@@ -17,31 +18,37 @@ import { title } from './data/title';
 import { subtitle } from './data/subtitle';
 
 export default function Results() {
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState({});
+  const [total, setTotal] = useState(12);
+  const [correct, setCorrect] = useState(5);
   const testActive = useSelector(state => state.tests.testActive);
-
-  // STATIC DATA(added for testing)
-  let correct = 6;
-  let total = 12;
+  const token = useSelector(state => state.user.token);
 
   const dispatch = useDispatch();
 
-  const url = testActive === 'technical QA' ? 'technicalQA' : 'testingTheory';
+  const url = testActive === 'technical QA' ? 'technical' : 'theory';
 
   useEffect(() => {
     async function getUserResult() {
       try {
-        const dataToFind = await getResults(url);
-        setResult(dataToFind);
+        const { data } = await getResults(url, token);
+
+        const { resultQA } = data;
+        setResult(resultQA);
+        setTotal(data.resultQA.total);
+        setCorrect(data.resultQA.correctAnswers);
+        // console.log(resultQA);
       } catch (error) {
         console.error(error);
       }
     }
+
     getUserResult();
-  }, [url]);
+  }, [url, token]);
 
   const handleTryAgain = () => {
-    dispatch(deleteResult());
+    dispatch(questionActions.removeRusult());
+    dispatch(deleteResult(url, token));
   };
 
   return (
@@ -53,7 +60,6 @@ export default function Results() {
             <h2 className={styles.subtitle}>[ {testActive}_]</h2>
             <hr className={styles.line} />
             <Diagram correct={correct} total={total} />
-            {/* correct={result.correctAnswers} total={result.total} */}
           </div>
           <div className={styles.feedback}>
             <img src={image[correct]} alt="cat" className={styles.image} />
