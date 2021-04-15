@@ -15,7 +15,7 @@ export async function getTests(path) {
 
 export async function getResult(path, tests) {
   try {
-    const response = await axios.post(`/tests/${path}`, tests);
+    const response = await axios.post(`/tests/${path}/result`, tests);
     return response.data;
   } catch (error) {
     console.log('error', { error });

@@ -103,7 +103,10 @@ export default function App() {
                 >
                   <MainPageView />
                 </PrivateRoute>
-                <PrivateRoute path={routes.TEST_VIEW}>
+                <PrivateRoute
+                  path={routes.TEST_VIEW}
+                  redirectTo={routes.TEST_VIEW}
+                >
                   <TestPageView />
                 </PrivateRoute>
                 <PrivateRoute path={routes.RESULT_VIEW}>
