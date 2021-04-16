@@ -147,6 +147,8 @@
 }
 .nextBtn_active,
 .nextBtn_disabled {
+  cursor: pointer;
+  outline: none;
   width: 55px;
   height: 34px;
   border: none;
@@ -172,6 +174,8 @@
   color: #000000;
 }
 .finishBtn {
+  cursor: pointer;
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
