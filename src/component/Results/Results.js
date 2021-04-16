@@ -74,7 +74,10 @@ export default function Results() {
             <img src={image[correct]} alt="cat" className={styles.image} />
             <h2 className={styles.feedbackTitle}>{title[correct]}</h2>
             <h3 className={styles.feedbackSubtitle}>{subtitle[correct]}</h3>
-            <Link to={routes.TEST_VIEW} className={styles.testLink}>
+            <Link
+              to={routes.TEST_VIEW}
+              className={styles.testLink + ' ' + styles.testLinkMargin}
+            >
               <button className={styles.button} onClick={handleTryAgain}>
                 Try again
               </button>

@@ -21,11 +21,9 @@ export default function TestCard({ randomQuestions, setValue, index, value }) {
 
             <Radio.Group onChange={handleChange} value={value}>
               {randomQuestions[index].answers.map((question, index) => (
-                <>
-                  <Radio value={question} className={s.anwersItem} key={index}>
-                    {question}
-                  </Radio>
-                </>
+                <Radio value={question} className={s.anwersItem} key={index}>
+                  {question}
+                </Radio>
               ))}
             </Radio.Group>
           </div>
