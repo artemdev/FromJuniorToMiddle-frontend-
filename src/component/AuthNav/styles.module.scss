@@ -61,7 +61,9 @@
   line-height: 16px;
   letter-spacing: 0.02em;
   text-align: right;
-
+  max-width: 40px;
+  width: 40px;
+  overflow: hidden;
   @media (max-width: 767px) {
     display: none;
     width: 0;
