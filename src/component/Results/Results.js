@@ -33,15 +33,15 @@ export default function Results() {
       try {
         if (url === 'technical') {
           const { data } = await getResults(url, token);
-          setResult(data.resultQA);
-          setTotal(data.resultQA.total);
-          setCorrect(data.resultQA.correctAnswers);
+          setResult(data);
+          setTotal(data.total);
+          setCorrect(data.correctAnswers);
         }
         if (url === 'theory') {
           const { data } = await getResults(url, token);
-          setResult(data.resultTheory);
-          setTotal(data.resultTheory.total);
-          setCorrect(data.resultTheory.correctAnswers);
+          setResult(data);
+          setTotal(data.total);
+          setCorrect(data.correctAnswers);
         }
       } catch (error) {
         console.error(error);

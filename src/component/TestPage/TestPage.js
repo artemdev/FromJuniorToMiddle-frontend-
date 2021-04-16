@@ -37,7 +37,7 @@ export default function TestPage() {
         dispatch(questionActions.addRandomQuestions(tests.data.tests)),
       );
     }
-  }, [randomQuestions, testName]);
+  }, [dispatch, randomQuestions, url]);
 
   useEffect(() => {
     if (!randomQuestions) {
