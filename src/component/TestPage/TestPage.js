@@ -27,14 +27,16 @@ export default function TestPage() {
       return;
     }
 
-    if (testName === 'technical') {
+    if (url === 'technical') {
       getTests('/tests/technical/random').then(tests =>
         dispatch(questionActions.addRandomQuestions(tests.data.tests)),
       );
     }
-    getTests('/tests/theory/random').then(tests =>
-      dispatch(questionActions.addRandomQuestions(tests.data.tests)),
-    );
+    if (url === 'theory') {
+      getTests('/tests/theory/random').then(tests =>
+        dispatch(questionActions.addRandomQuestions(tests.data.tests)),
+      );
+    }
   }, [randomQuestions, testName]);
 
   useEffect(() => {

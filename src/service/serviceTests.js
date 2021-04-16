@@ -7,17 +7,25 @@ export async function getTests(path) {
   try {
     const { data } = await axios.get(path);
     return data;
-    // console.log(path);
   } catch (error) {
     console.log('error', { error });
     return [];
   }
 }
 
-export async function getResult(path, tests) {
+export async function getResult(path, tests, userToken) {
   try {
-    const response = await axios.post(`/tests/${path}`, tests);
+    const response = await axios({
+      url: `/tests/${path}`,
+      tests,
+      method: 'post',
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+      },
+    });
     return response.data;
+    // const response = await axios.post(`/tests/${path}`, tests);
+    // return response.data;
   } catch (error) {
     console.log('error', { error });
     return [];

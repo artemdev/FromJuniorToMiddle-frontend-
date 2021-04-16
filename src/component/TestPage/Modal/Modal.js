@@ -7,12 +7,15 @@ export default function Modal({ active, setActive }) {
   const testName = useSelector(state => state.tests.testActive);
   const url = testName === 'technical QA' ? 'technical' : 'theory';
   const userAnswers = useSelector(state => state.tests.question);
+  const token = useSelector(state => state.user.token);
 
   const sendAnswers = () => {
-    if (testName === 'technical') {
-      getResult('technical', userAnswers);
-    } else {
-      getResult('theory', userAnswers);
+    if (url === 'technical') {
+      getResult('technical', userAnswers, token);
+    }
+
+    if (url === 'theory') {
+      getResult('theory', userAnswers, token);
     }
   };
 

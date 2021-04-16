@@ -19,8 +19,8 @@ import { subtitle } from './data/subtitle';
 
 export default function Results() {
   const [result, setResult] = useState({});
-  const [total, setTotal] = useState(12);
-  const [correct, setCorrect] = useState(5);
+  const [total, setTotal] = useState(0);
+  const [correct, setCorrect] = useState(0);
   const testActive = useSelector(state => state.tests.testActive);
   const token = useSelector(state => state.user.token);
 
@@ -31,20 +31,26 @@ export default function Results() {
   useEffect(() => {
     async function getUserResult() {
       try {
-        const { data } = await getResults(url, token);
-
-        const { resultQA } = data;
-        setResult(resultQA);
-        setTotal(data.resultQA.total);
-        setCorrect(data.resultQA.correctAnswers);
-        // console.log(resultQA);
+        if (url === 'technical') {
+          const { data } = await getResults(url, token);
+          setResult(data.resultQA);
+          setTotal(data.resultQA.total);
+          setCorrect(data.resultQA.correctAnswers);
+        }
+        if (url === 'theory') {
+          const { data } = await getResults(url, token);
+          setResult(data.resultTheory);
+          setTotal(data.resultTheory.total);
+          setCorrect(data.resultTheory.correctAnswers);
+        }
       } catch (error) {
         console.error(error);
       }
     }
 
     getUserResult();
-  }, [url, token]);
+    console.log('useEffect:');
+  }, [token, url]);
 
   const handleTryAgain = () => {
     dispatch(questionActions.removeRusult());
