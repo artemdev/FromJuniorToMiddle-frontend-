@@ -56,6 +56,9 @@ export default function Results() {
     dispatch(questionActions.removeRusult());
     dispatch(deleteResult(url, token));
   };
+  const finishTest = async () => {
+    dispatch(questionActions.removeRusult());
+  };
 
   return (
     <>
@@ -74,6 +77,11 @@ export default function Results() {
             <Link to={routes.TEST_VIEW} className={styles.testLink}>
               <button className={styles.button} onClick={handleTryAgain}>
                 Try again
+              </button>
+            </Link>
+            <Link to={routes.MAIN_VIEW} className={styles.testLink}>
+              <button className={styles.button} onClick={finishTest}>
+                Finish test
               </button>
             </Link>
           </div>

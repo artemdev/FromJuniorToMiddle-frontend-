@@ -5,6 +5,7 @@ import styles from './styles.module.scss';
 import { authSelectors } from '../../redux/auth';
 import { authOperations } from '../../redux/auth';
 import Button from '../Button';
+import Avatar from '../../icon/avatarPlaceholder.png';
 
 function AuthHav() {
   const [name, setName] = useState();
@@ -33,7 +34,7 @@ function AuthHav() {
         <div className={styles.avatarWarapper}>
           <img
             className={styles.avatar}
-            src={avatarUrl}
+            src={avatarUrl ? avatarUrl : Avatar}
             alt="avatar"
             width="30"
             height="30"
