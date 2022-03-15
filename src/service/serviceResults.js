@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
+axios.defaults.baseURL = 'https://fromjuniortomiddle.herokuapp.com';
 
 export default async function getResults(url, userToken) {
   try {

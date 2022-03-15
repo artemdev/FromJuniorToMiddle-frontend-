@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import action from './questions-actions';
 
-axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
+axios.defaults.baseURL = 'https://fromjuniortomiddle.herokuapp.com';
 
 // export const getResult = url => dispatch => {
 //   dispatch(action.getResultRequest());

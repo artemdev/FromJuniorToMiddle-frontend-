@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
+axios.defaults.baseURL = 'https://fromjuniortomiddle.herokuapp.com';
 
 export async function getTests(path) {
   try {

@@ -16,7 +16,7 @@ const myStack = new Stack({
   maxOpen: Infinity,
 });
 
-axios.defaults.baseURL = 'https://intense-stream-90411.herokuapp.com';
+axios.defaults.baseURL = 'https://fromjuniortomiddle.herokuapp.com';
 
 const token = {
   set(token) {

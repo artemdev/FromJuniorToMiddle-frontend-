@@ -11,8 +11,7 @@ const routes = {
 
   WRONG: '/wrong',
 
-  GOOGLE_AUTH_URL: 'https://intense-stream-90411.herokuapp.com/auth/google',
-
+  GOOGLE_AUTH_URL: 'https://fromjuniortomiddle.herokuapp.com/auth/google',
 };
 
 export default routes;

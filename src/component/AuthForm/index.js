@@ -44,7 +44,7 @@ export default function AuthForm() {
       </h2>
       <div className={styles.buttonGoogleWrapper}>
         <a
-          href="https://intense-stream-90411.herokuapp.com/auth/google"
+          href="https://fromjuniortomiddle.herokuapp.com/auth/google"
           className={styles.buttonGoogle}
         >
           Google
