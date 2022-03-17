@@ -30,3 +30,6 @@ yarn-error.log*
 =======
 .eslintcache
 >>>>>>> main
+
+# Local Netlify folder
+.netlify
