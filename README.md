@@ -1,4 +1,4 @@
-One of my "pet" projects that helps junior developer update development skills by answering technical question
+One of my hackathon projects that helps junior developer update development skills by answering technical question
 
 Technologies that were used in Frontend Part
 * HTML/CSS/JavaScript
