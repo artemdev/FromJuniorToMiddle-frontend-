@@ -1,0 +1,2 @@
+(this.webpackJsonpfrontend=this.webpackJsonpfrontend||[]).push([[5],{332:function(n,e,t){},345:function(n,e,t){"use strict";t.r(e),t.d(e,"default",(function(){return i}));t(332);var r=t(1),i=function(){return Object(r.jsx)("div",{className:"wron-view-wrapper",children:Object(r.jsx)("p",{className:"wron-view-wrapper__text",children:"Something got wrong :-(. Please try again"})})}}}]);
+//# sourceMappingURL=WrongView.22e05041.chunk.js.map
