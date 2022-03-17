@@ -1,0 +1,21 @@
+.modal__backdrop {
+  position: fixed;
+  top: 71px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(245, 246, 251);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+
+  background-color: rgb(245, 246, 251);
+  border-bottom: 1px solid rgb(226, 227, 229);
+
+  &__logo {
+    width: 264px;
+    padding: 20px 0px 20px 20px;
+  }
+}

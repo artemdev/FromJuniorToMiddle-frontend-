@@ -1,75 +1,147 @@
-// import { Switch } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { Switch } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import routes from './routes';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { literature, resources } from './views/UsefulInfo/UsefulInfo.json';
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { authOperations, authSelectors } from 'redux/auth';
 
-import Container from 'component/Container';
-import AppBar from 'component/AppBar';
-import Loader from 'component/Loader';
-// import PrivateRoute from 'component/PrivateRoute';
-// import PublicRoute from 'component/PublicRoute';
+import Container from './component/Container';
+import AppBar from './component/AppBar';
+import Google from './views/Google';
+import Loader from './component/Loader';
+import Footer from './component/Footer';
+import PrivateRoute from './component/PrivateRoute';
+import PublicRoute from './component/PublicRoute';
 
-import Diagram from 'component/Diagram'; // !!!TEMPORARY ADDED
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import Result from 'component/Results'; // !!!TEMPORARY ADDED
+
+// import UsefulInfo from 'views/UsefulInfo';
+
+import { authOperations } from './redux/auth';
+import { authSelectors } from './redux/auth';
+
 import('typeface-montserrat');
 
 const ContactPageView = lazy(() =>
-  import('views/ContactPageView' /* webpackChunkName: "ContactPageView" */),
+  import(
+    'views/ContactPageView/ContactPageView' /* webpackChunkName: "ContactPageView" */
+  ),
 );
 const AuthPageView = lazy(() =>
-  import('views/AuthPageView/AuthPageView' /*AuthPageViewChunkName: "AuthPageView" */),
+  import(
+    'views/AuthPageView/AuthPageView' /*AuthPageViewChunkName: "AuthPageView" */
+  ),
+);
+
+const TestPageView = lazy(() =>
+  import('./views/TestPageView' /* webpackChunkName: "TestPageView" */),
+);
+const ResultPageView = lazy(() =>
+  import('./views/ResultPageView' /* webpackChunkName: "TestPageView" */),
 );
 const MainPageView = lazy(() =>
   import('views/MainPageView' /* webpackChunkName: "MainPageView" */),
 );
-const UsefulPageView = lazy(() =>
-  import('views/UsefulPageView' /* webpackChunkName: "UsefulPageView" */),
+const UsefulInfo = lazy(() =>
+  import('views/UsefulInfo' /* webpackChunkName: "UsefulPageView" */),
 );
 const NotFoundView = lazy(() =>
-  import('views/NotFoundView' /* webpackChunkName: "NotFoundView" */),
+  import(
+    'views/NotFoundView/NotFoundView' /* webpackChunkName: "NotFoundView" */
+  ),
+);
+const WrongView = lazy(() =>
+  import('views/WrongView' /* webpackChunkName: "WrongView" */),
 );
 
 export default function App() {
+  const isRefreshingCurrentUser = useSelector(
+    authSelectors.isRefreshingCurrentUser,
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <Container>
-      <AppBar />
-      <Suspense fallback={<Loader />}>
-        {/* <Switch> */}
-        {/* <PublicRoute path="/contacts"> */}
-        <ContactPageView />
-        {/* </PublicRoute> */}
+    <>
+      {isRefreshingCurrentUser ? (
+        <div>
+          <Loader />
+        </div>
+      ) : (
+        <>
+          <AppBar />
+          <Container>
+            <Suspense fallback={<Loader />}>
+              <Switch>
+                <PublicRoute exact path={routes.GOOGLE_AUTH_VIEW}>
+                  <Google />
+                </PublicRoute>
+                <PublicRoute path={routes.CONTACTS_VIEW}>
+                  <ContactPageView />
+                </PublicRoute>
+                <PublicRoute exact path={routes.AUTH_VIEW} restricted>
+                  <AuthPageView />
+                </PublicRoute>
+                <PublicRoute exact path={routes.AUTH_SIGNUP} restricted>
+                  <AuthPageView />
+                </PublicRoute>
+                <PublicRoute exact path={routes.AUTH_SIGNIN} restricted>
+                  <AuthPageView action="signin" />
+                </PublicRoute>
+                <PrivateRoute
+                  path={routes.MAIN_VIEW}
+                  exact
+                  redirectTo={routes.AUTH_VIEW}
+                >
+                  <MainPageView />
+                </PrivateRoute>
+                <PrivateRoute
+                  path={routes.TEST_VIEW}
+                  redirectTo={routes.TEST_VIEW}
+                >
+                  <TestPageView />
+                </PrivateRoute>
+                <PrivateRoute
+                  path={routes.RESULT_VIEW}
+                  redirectTo={routes.RESULT_VIEW}
+                >
+                  <ResultPageView />
+                </PrivateRoute>
+                <PrivateRoute path={routes.USEFUL_INFO_VIEW}>
+                  <UsefulInfo literature={literature} resources={resources} />
+                </PrivateRoute>
+                <PublicRoute path={routes.WRONG}>
+                  <WrongView />
+                </PublicRoute>
+                <PublicRoute>
+                  <NotFoundView />
+                </PublicRoute>
+              </Switch>
+            </Suspense>
 
-        {/* <PublicRoute path="/auth"> */}
-        <AuthPageView />
-        {/* </PublicRoute> */}
-
-        {/* <PrivateRoute path="/" exact> */}
-        <MainPageView />
-        {/* </PrivateRoute> */}
-
-        {/* <PrivateRoute path="/useful-info"> */}
-        <UsefulPageView />
-        {/* </PrivateRoute> */}
-
-        {/* <PublicRoute> */}
-        <NotFoundView />
-        {/* </PublicRoute> */}
-        {/* </Switch> */}
-      </Suspense>
-      <Diagram />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-    </Container>
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+            <Footer />
+          </Container>
+        </>
+      )}
+    </>
   );
 }

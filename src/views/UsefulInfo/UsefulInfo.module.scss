@@ -1,0 +1,111 @@
+.materialsSection {
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  min-height: calc(100vh - 121px);
+
+  @media screen and (max-width: 767px) {
+    background-image: url('./images/usefulInfoMobile.jpg');
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+    screen and (min-resolution: 192dpi and (max-width: 767px)),
+    screen and (min-resolution: 2dppx) and (max-width: 767px) {
+    background-image: url('./images/usefulInfoMobile@2x.jpg');
+  }
+  @media screen and (min-width: 768px) {
+    background-image: url('./images/usefulInfoTablet.jpg');
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+    screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px) {
+    background-image: url('./images/usefulInfoTablet@2x.jpg');
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url('./images/usefulInfoDesktop.jpg');
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+    screen and (min-resolution: 192dpi) and (min-width: 1280px),
+    screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+    background-image: url('./images/usefulInfoDesktop@2x.jpg');
+  }
+}
+
+.usefullContainer {
+  padding-top: 40px;
+  padding-bottom: 111px;
+  margin-left: 20px;
+  @media screen and (min-width: 768px) {
+    padding-top: 119px;
+    padding-bottom: 419px;
+  }
+}
+
+.title {
+  font-family: Montserrat;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  font-weight: 700;
+  margin-bottom: 27px;
+  position: relative;
+  @media screen and (min-width: 768px) {
+    margin-left: 115px;
+    font-size: 22px;
+    line-height: 30px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 190px;
+  }
+}
+
+.title::after {
+  display: block;
+  width: 150px;
+  height: 1px;
+  background-color: #00122f;
+  opacity: 0.15;
+  content: '';
+  position: absolute;
+  top: 35px;
+  left: 0;
+  @media screen and (min-width: 768px) {
+    width: 322px;
+  }
+}
+.list {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 175px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 250px;
+  }
+}
+.list:not(:last-child) {
+  margin-bottom: 38px;
+}
+.item {
+  padding-left: 5px;
+}
+
+.itemLink,
+.linkId {
+  font-family: Montserrat;
+  color: #000000;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  display: inline-block;
+}

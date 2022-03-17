@@ -1,18 +1,19 @@
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import './Loader.scss';
 
 const onLoader = () => {
-  // console.log('state', state.auth.user);
   return (
-    <Loader
-      className="loader"
-      type="Audio"
-      color="#464646"
-      height={40}
-      width={40}
-      ы
-      timeout={3000} //3 secs
-    />
+    <div className="loader-wrapper">
+      <Loader
+        className="loader"
+        type="ThreeDots"
+        color="#ff6b01"
+        height={80}
+        width={80}
+        timeout={3000} //3 secs
+      />
+    </div>
   );
 };
 

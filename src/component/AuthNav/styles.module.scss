@@ -1,0 +1,72 @@
+.authAvatarNameContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+
+  @media (min-width: 768px) {
+    min-width: 86px;
+    padding: 20px 10px 20px 0;
+  }
+}
+
+.signOutButton {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 58px;
+    background-color: rgb(245, 246, 251);
+    border: none;
+    border-left: 1px solid rgb(226, 227, 229);
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+.authNav {
+  display: flex;
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
+    width: 48px;
+  }
+
+  @media (min-width: 768px) {
+    min-width: 156px;
+  }
+}
+
+.avatarWarapper {
+  width: 30px;
+  margin-right: 19px;
+
+  @media (min-width: 768px) {
+    margin-right: 12px;
+  }
+}
+
+.avatar {
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.name {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  text-align: right;
+  max-width: 40px;
+  width: 40px;
+  overflow: hidden;
+  @media (max-width: 767px) {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}

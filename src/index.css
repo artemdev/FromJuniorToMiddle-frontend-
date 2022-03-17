@@ -2,6 +2,23 @@ body {
   margin: 0;
   font-family: 'Montserrat';
   font-size: 10px;
+  background-color: #e5e5e5;
+}
+body,
+html,
+#root {
+  min-height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  position: relative;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+main {
+  margin: 0 0 51px;
 }
 
 * {
@@ -10,22 +27,21 @@ body {
   box-sizing: inherit;
 }
 
-html {
-  box-sizing: border-box;
-}
-
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-.link {
+.link,
+a {
   display: block;
   text-decoration: none;
 }
 
-.list {
+.list,
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;

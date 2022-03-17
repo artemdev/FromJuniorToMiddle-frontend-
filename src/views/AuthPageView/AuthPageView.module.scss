@@ -1,0 +1,94 @@
+/* стили для мобилки */
+.section {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding-top: 40px;
+  margin-bottom: 50px;
+}
+
+.wrapper:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 'Montserrat';
+  font-size: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+
+.textBold {
+  font-weight: bold;
+}
+
+// стили для таблетки
+@media (min-width: 768px) and (max-width: 1279px) {
+  .section {
+    width: 540px;
+    padding-top: 80px;
+    margin-bottom: 70px;
+  }
+
+  .wrapper:not(:last-child) {
+    margin-bottom: 50px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    font-size: 16px;
+    line-height: 36px;
+  }
+}
+
+// стили для десктоп
+@media (min-width: 1280px) {
+  .section {
+    width: 1030px;
+    flex-wrap: nowrap;
+    padding-top: 80px;
+    margin-bottom: 100px;
+  }
+
+  .wrapper {
+    margin-bottom: 0;
+  }
+
+  .wrapper:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .title {
+    font-size: 34px;
+    line-height: 41px;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    width: 420px;
+    font-size: 18px;
+    line-height: 36px;
+  }
+}

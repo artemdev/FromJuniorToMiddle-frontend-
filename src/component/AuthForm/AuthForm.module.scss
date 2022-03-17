@@ -1,0 +1,243 @@
+/* стили для мобилки */
+.form {
+  width: 280px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
+  padding: 30px 20px;
+}
+.text {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: #000000;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.buttonGoogleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.buttonGoogle {
+  display: block;
+  width: 159px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 49px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  background-color: #fafafa;
+  // border:none  сливается кнопка, не видно края
+  border: 1px solid #ced2d1;
+  text-align: center;
+  // padding: 18px 38px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.buttonGoogle::before {
+  content: ' ';
+  width: 18px;
+  height: 18px;
+  background-image: url(../../icon/google-logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  vertical-align: text-top;
+  margin-right: 10px;
+}
+.input {
+  width: 240px;
+  height: 56px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  background-color: #ffffff;
+  border: 1px solid #ced2d1;
+  padding-left: 25px;
+  margin-bottom: 20px;
+}
+
+.input::placeholder {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #bbbbbb;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.errors {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.02em;
+  color: rgb(230, 28, 28);
+  padding-left: 25px;
+  margin-bottom: 20px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonSignIn {
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 25px 28px;
+}
+.active {
+  background-color: #ff6b09;
+}
+
+.buttonSignIn:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.buttonSignIn:active {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.buttonSignUp {
+  border: 1px solid #ced2d1;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #000000;
+  padding: 25px 28px;
+}
+
+.buttonSignUp:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.buttonSignUp:active {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+// стили для таблетки
+@media (min-width: 768px) and (max-width: 1279px) {
+  .form {
+    width: 540px;
+    padding: 62px 58px 42px 58px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 30px;
+  }
+
+  .buttonGoogleWrapper {
+    justify-content: flex-start;
+  }
+
+  .buttonGoogle {
+    margin-bottom: 40px;
+  }
+
+  .input {
+    width: 425px;
+    margin-bottom: 24px;
+  }
+
+  .errors {
+    margin-bottom: 24px;
+  }
+
+  .buttonWrapper {
+    padding-top: 16px;
+  }
+
+  .buttonSignIn {
+    width: 200px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 24px 46px;
+  }
+
+  .buttonSignUp {
+    width: 200px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 25px 46px;
+  }
+}
+
+// стили для десктоп
+@media (min-width: 1280px) {
+  .form {
+    width: 505px;
+    padding: 62px 40px 42px 40px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 30px;
+  }
+
+  .buttonGoogleWrapper {
+    justify-content: flex-start;
+  }
+
+  .buttonGoogle {
+    margin-bottom: 40px;
+  }
+
+  .input {
+    width: 425px;
+    margin-bottom: 24px;
+  }
+
+  .errors {
+    margin-bottom: 24px;
+  }
+
+  .buttonWrapper {
+    padding-top: 16px;
+  }
+
+  .buttonSignIn {
+    width: 200px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 24px 46px;
+  }
+
+  .buttonSignUp {
+    width: 200px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 25px 46px;
+  }
+}

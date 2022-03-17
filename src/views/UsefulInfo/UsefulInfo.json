@@ -1,0 +1,42 @@
+{
+  "resources": [
+    {
+      "id": 1,
+      "url": "https://dou.ua/",
+      "name": "Dou.ua"
+    },
+    {
+      "id": 2,
+      "url": "https://habr.com/ru/",
+      "name": "Habr"
+    },
+    {
+      "id": 3,
+      "url": "https://www.istqb.org/certification-path-root/foundation-level-2018.html",
+      "name": "ISTQB Foundation Level"
+    },
+    {
+      "id": 4,
+      "url": "https://goit.ua/",
+      "name": "goit.ua"
+    }
+  ],
+
+  "literature": [
+    {
+      "id": 1,
+      "url": "https://dou.ua/",
+      "name": "Testing dot.com Savin."
+    },
+    {
+      "id": 2,
+      "url": "https://habr.com/ru/",
+      "name": "A mental hospital in the hands of patients. "
+    },
+    {
+      "id": 3,
+      "url": "https://goit.ua/",
+      "name": "Scrum. J. Sutherland."
+    }
+  ]
+}
