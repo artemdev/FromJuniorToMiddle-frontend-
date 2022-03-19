@@ -7,9 +7,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { literature, resources } from './views/UsefulInfo/UsefulInfo.json';
 
-// import { useDispatch, useSelector } from 'react-redux';
-// import { authOperations, authSelectors } from 'redux/auth';
-
 import Container from './component/Container';
 import AppBar from './component/AppBar';
 import Google from './views/Google';
@@ -17,10 +14,6 @@ import Loader from './component/Loader';
 import Footer from './component/Footer';
 import PrivateRoute from './component/PrivateRoute';
 import PublicRoute from './component/PublicRoute';
-
-// import Result from 'component/Results'; // !!!TEMPORARY ADDED
-
-// import UsefulInfo from 'views/UsefulInfo';
 
 import { authOperations } from './redux/auth';
 import { authSelectors } from './redux/auth';
